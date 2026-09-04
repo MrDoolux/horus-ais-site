@@ -5,37 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentions légales — Horus AIS</title>
   <style>
-    :root { --gold:#d4af37; --text:#e8e0d0; --muted:#a89f8c; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { min-height:100vh; background:#050505; color:var(--text); font-family:system-ui,Segoe UI,sans-serif; padding:2.5rem 1.25rem 3rem; }
-    main { max-width:640px; margin:0 auto; }
-    h1 { color:var(--gold); font-weight:400; letter-spacing:.16em; text-transform:uppercase; font-size:1rem; margin-bottom:1.2rem; }
-    h2 { color:var(--gold); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; font-weight:400; margin:1.4rem 0 .5rem; }
-    p { color:var(--muted); line-height:1.6; margin-bottom:.6rem; }
-    a { color:var(--gold); }
-    nav { margin-top:2.4rem; font-size:.75rem; }
-    nav a { color:#5a5348; margin-right:.8rem; text-decoration:none; }
+    :root {
+      --gold: #d4af37;
+      --gold-soft: #c9a227;
+      --gold-glow: rgba(212, 175, 55, 0.45);
+      --bg: #050505;
+      --text: #e8e0d0;
+      --muted: #a89f8c;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Nav ===== */
+    nav.top {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: rgba(5,5,5,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+    nav.top .brand { display: flex; align-items: center; gap: 0.6rem; }
+    nav.top .brand img { width: 34px; height: 34px; border-radius: 50%; }
+    nav.top .brand span { color: var(--gold); letter-spacing: 0.18em; font-size: 0.85rem; text-transform: uppercase; }
+    nav.top ul { display: flex; gap: 1.4rem; list-style: none; }
+    nav.top ul a { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
+    nav.top ul a:hover { color: var(--gold); }
+    @media (max-width: 640px) { nav.top ul { display: none; } }
+
+    /* ===== Hero / fond logo_text ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      background:
+        linear-gradient(rgba(5,5,5,0.55), rgba(5,5,5,0.85)),
+        url('assets/logo_text.jpg') center/cover no-repeat;
+    }
+    .hero .logo-wrap {
+      position: relative;
+      width: min(680px, 90vw);
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      isolation: isolate;
+    }
+    .hero .logo-wrap img {
+      width: 100%; height: auto; border-radius: 4px;
+      filter: drop-shadow(0 0 28px rgba(212,175,55,0.18));
+      transition: filter 0.4s ease;
+    }
+    .hero .logo-wrap:hover img { filter: drop-shadow(0 0 40px rgba(212,175,55,0.35)); }
+    #dust-canvas { position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10; }
+    .hero h1 {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); font-weight: 400;
+      text-shadow: 0 0 24px var(--gold-glow);
+      margin-bottom: 0.8rem;
+    }
+    .hero .tagline { color: var(--muted); font-size: 1rem; max-width: 480px; margin-bottom: 2rem; }
+    .actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.7rem;
+      border: 1px solid rgba(212,175,55,0.45);
+      background: transparent; color: var(--gold);
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 2px; transition: all 0.3s ease;
+    }
+    .btn:hover { background: rgba(212,175,55,0.08); border-color: var(--gold); box-shadow: 0 0 22px rgba(212,175,55,0.25); }
+    .btn.primary { background: rgba(212,175,55,0.1); }
+    .scroll-hint { position: absolute; bottom: 1.5rem; color: #5a5348; font-size: 0.7rem; letter-spacing: 0.2em; }
+
+    /* ===== Mentions ===== */
+    section.mentions { padding: 5rem 1.5rem; }
+    .wrap { max-width: 640px; margin: 0 auto; }
+    .section-title {
+      color: var(--gold); font-weight: 400; letter-spacing: 0.2em;
+      text-transform: uppercase; font-size: 1.1rem; margin-bottom: 0.6rem;
+    }
+    .section-sub { color: var(--muted); margin-bottom: 2.5rem; max-width: 560px; }
+    .block { margin-bottom: 1.6rem; }
+    .block h2 {
+      color: var(--gold); font-size: 0.8rem; letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem;
+    }
+    .block p { color: var(--muted); line-height: 1.6; margin-bottom: 0.5rem; }
+    .block a { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      background: #030303; border-top: 1px solid rgba(212,175,55,0.12);
+      padding: 2rem 1.5rem; text-align: center;
+    }
+    footer .links { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+    footer .links a { color: #5a5348; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    footer .links a:hover { color: var(--gold); }
+    footer .copy { color: #3a3530; font-size: 0.7rem; letter-spacing: 0.1em; }
   </style>
 </head>
 <body>
-  <main>
+
+  <nav class="top">
+    <a href="index.html" class="brand">
+      <img src="assets/logo_faucon_fin.jpg" alt="Horus AIS" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a href="index.html#prestations">Prestations</a></li>
+      <li><a href="index.html#apropos">À propos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="mentions-legales.html">Mentions</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO : logo_text en fond -->
+  <header class="hero" id="accueil">
+    <div class="logo-wrap" id="logo-wrap">
+      <img src="assets/logo_text.jpg" alt="Horus AIS — Mentions légales" id="logo-img" />
+      <canvas id="dust-canvas"></canvas>
+    </div>
     <h1>Mentions légales</h1>
-    <h2>Éditeur</h2>
-    <p>Ludovic Suy — entrepreneur individuel, micro-entreprise, nom commercial Horus AIS.</p>
-    <p>SIRET : 109 225 821 00015 — SIREN : 109 225 821 — APE : 6209Z.</p>
-    <p>Siège : 57 boulevard Pereire, 75017 Paris.</p>
-    <p>Mail : <a href="mailto:contact@horus-ais.com">contact@horus-ais.com</a> — Tél. : 07 68 43 59 63</p>
-    <p>Directeur de la publication : Ludovic Suy.</p>
-    <h2>Hébergement</h2>
-    <p>Site servi via Cloudflare Tunnel. Hébergeur à mentionner : Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA — à confirmer sur ton compte Cloudflare.</p>
-    <h2>TVA</h2>
-    <p>TVA non applicable, article 293 B du CGI.</p>
-    <nav>
+    <p class="tagline">Informations légales de l'éditeur du site Horus AIS.</p>
+    <div class="actions">
+      <a class="btn primary" href="index.html">Accueil</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </div>
+    <div class="scroll-hint">DÉFILER ↓</div>
+  </header>
+
+  <!-- MENTIONS -->
+  <section class="mentions" id="mentions">
+    <div class="wrap">
+      <h2 class="section-title">Éditeur</h2>
+      <div class="block">
+        <p>Ludovic Suy — entrepreneur individuel, micro-entreprise, nom commercial Horus AIS.</p>
+        <p>SIRET : 109 225 821 00015 — SIREN : 109 225 821 — APE : 6209Z.</p>
+        <p>Siège : 57 boulevard Pereire, 75017 Paris.</p>
+        <p>Mail : <a href="mailto:contact@horus-ais.com">contact@horus-ais.com</a> — Tél. : 07 68 43 59 63</p>
+        <p>Directeur de la publication : Ludovic Suy.</p>
+      </div>
+
+      <h2 class="section-title">Hébergement</h2>
+      <div class="block">
+        <p>Site servi via Cloudflare Tunnel. Hébergeur à mentionner : Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA — à confirmer sur ton compte Cloudflare.</p>
+      </div>
+
+      <h2 class="section-title">TVA</h2>
+      <div class="block">
+        <p>TVA non applicable, article 293 B du CGI.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
       <a href="index.html">Accueil</a>
-      <a href="liens.html">Liens</a>
       <a href="prestations.html">Prestations</a>
       <a href="contact.html">Contact</a>
-    </nav>
-  </main>
+      <a href="liens.html">Liens</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
+  </footer>
+
+  <script>
+    (function () {
+      const wrap = document.getElementById("logo-wrap");
+      const canvas = document.getElementById("dust-canvas");
+      const ctx = canvas.getContext("2d");
+      const hieroglyphs = ["🂀","🁹","🀣","🁹","🀀","🁏","🀃","🀖","🁋","🁛","🀿","🅯","🀭","🀑","🀓","🅲","🀪","🀋","🅤","🀳","🀨","🁶","🀂","🀓","🁴","🀎","🅟","🀡","🅥","🀖"];
+      const matrix = ["ア","カ","サ","タ","ナ","ハ","マ","ヤ","ラ","ワ","イ","キ","シ","チ","ニ","ヒ","ミ","リ","ウ","ク","ス","ツ","ヌ","フ","ム","ユ","ル","エ","ケ","セ","0","1","7","ゼ","ク","ゾ","ダ","バ","パ","ン","Σ","Ω","Δ","Ψ","λ","μ","π","τ"];
+      const allChars = [...hieroglyphs, ...matrix];
+      let particles = []; let animId = null; let isHovering = false; let lastSpawn = 0;
+      function resize() {
+        const rect = wrap.getBoundingClientRect();
+        if (rect.width < 10 || rect.height < 10) return;
+        canvas.width = Math.floor(rect.width * devicePixelRatio);
+        canvas.height = Math.floor(rect.height * devicePixelRatio);
+        canvas.style.width = rect.width + "px";
+        canvas.style.height = rect.height + "px";
+        ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      }
+      function spawn(x, y, count, mode) {
+        const isBurst = mode === "burst";
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = isBurst ? 2.5 + Math.random() * 4.5 : 1.0 + Math.random() * 2.2;
+          particles.push({
+            x: x + (Math.random() - 0.5) * (isBurst ? 30 : 50),
+            y: y + (Math.random() - 0.5) * (isBurst ? 20 : 30),
+            vx: isBurst ? Math.cos(angle) * speed : (Math.random() - 0.5) * 2.2,
+            vy: isBurst ? Math.sin(angle) * speed - 1.5 : -1.4 - Math.random() * 2.8,
+            life: 1,
+            decay: isBurst ? 0.014 + Math.random() * 0.018 : 0.010 + Math.random() * 0.016,
+            size: isBurst ? 14 + Math.random() * 14 : 13 + Math.random() * 11,
+            char: allChars[Math.floor(Math.random() * allChars.length)],
+            rot: (Math.random() - 0.5) * 0.6,
+            rotSpeed: (Math.random() - 0.5) * (isBurst ? 0.14 : 0.08)
+          });
+        }
+      }
+      function tick(now) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (isHovering && now - lastSpawn > 70) {
+          const rect = wrap.getBoundingClientRect();
+          spawn(rect.width * (0.3 + Math.random() * 0.4), rect.height * (0.35 + Math.random() * 0.3), 2);
+          lastSpawn = now;
+        }
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.x += p.vx; p.y += p.vy; p.vy -= 0.015; p.vx *= 0.99; p.life -= p.decay; p.rot += p.rotSpeed;
+          if (p.life <= 0) { particles.splice(i, 1); continue; }
+          ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+          ctx.globalAlpha = Math.max(0, p.life);
+          ctx.font = p.size + "px 'Segoe UI Symbol', serif";
+          ctx.fillStyle = "#d4af37"; ctx.shadowColor = "rgba(212,175,55,0.7)"; ctx.shadowBlur = 8;
+          ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(p.char, 0, 0); ctx.restore();
+        }
+        if (particles.length > 0 || isHovering) { animId = requestAnimationFrame(tick); } else { animId = null; }
+      }
+      function startLoop() { if (!animId) animId = requestAnimationFrame(tick); }
+      wrap.addEventListener("mouseenter", (e) => { isHovering = true; const rect = wrap.getBoundingClientRect(); spawn(e.clientX - rect.left, e.clientY - rect.top, 14, "soft"); startLoop(); });
+      wrap.addEventListener("mousemove", (e) => { if (!isHovering) return; const now = performance.now(); if (now - lastSpawn > 45) { const rect = wrap.getBoundingClientRect(); spawn(e.clientX - rect.left, e.clientY - rect.top, 3, "soft"); lastSpawn = now; startLoop(); } });
+      wrap.addEventListener("mouseleave", () => { isHovering = false; });
+      wrap.addEventListener("click", (e) => { const rect = wrap.getBoundingClientRect(); const x = e.clientX - rect.left, y = e.clientY - rect.top; spawn(x, y, 38, "burst"); setTimeout(() => spawn(x, y, 12, "burst"), 60); startLoop(); });
+      wrap.addEventListener("touchstart", (e) => { isHovering = true; const rect = wrap.getBoundingClientRect(); const t = e.touches[0]; spawn(t.clientX - rect.left, t.clientY - rect.top, 12, "soft"); startLoop(); }, { passive: true });
+      wrap.addEventListener("touchend", () => { isHovering = false; });
+      window.addEventListener("resize", resize);
+      const img = document.getElementById("logo-img");
+      if (img.complete && img.naturalWidth > 0) { resize(); } else { img.addEventListener("load", resize); }
+      img.onerror = () => { img.style.display = "none"; const ph = document.createElement("div"); ph.style.cssText = "width:100%;aspect-ratio:16/9;background:#0a0a0a;border:1px solid rgba(212,175,55,0.25);display:flex;align-items:center;justify-content:center;color:#d4af37;font-size:1.4rem;letter-spacing:0.25em"; ph.textContent = "HORUS AIS"; wrap.insertBefore(ph, canvas); resize(); };
+      setTimeout(resize, 100);
+    })();
+  </script>
 </body>
 </html>
