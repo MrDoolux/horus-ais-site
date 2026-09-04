@@ -37,6 +37,7 @@
     }
     nav.top .brand { display: flex; align-items: center; gap: 0.6rem; }
     nav.top .brand img { width: 34px; height: 34px; border-radius: 50%; }
+    nav.top .brand .logo-text { height: 26px; width: auto; }
     nav.top .brand span { color: var(--gold); letter-spacing: 0.18em; font-size: 0.85rem; text-transform: uppercase; }
     nav.top ul { display: flex; gap: 1.4rem; list-style: none; }
     nav.top ul a { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
@@ -87,7 +88,7 @@
     .section-sub { color: var(--muted); margin-bottom: 2.5rem; max-width: 600px; }
 
     /* Particuliers grid */
-    .particuliers { background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.92)), url('assets/fond_cosmos.jpg') center/cover no-repeat; }
+    .particuliers { background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.92)), url('assets/fond_cosmo_only.jpg') center/cover no-repeat; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
     .card {
       border: 1px solid rgba(212,175,55,0.2); border-radius: 4px;
@@ -119,7 +120,7 @@
     .note { color: #5a5348; font-size: 0.78rem; margin-top: 1.2rem; line-height: 1.5; }
 
     /* Professionnels */
-    .pros { background: linear-gradient(rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('assets/fond_contact_1920x1080.jpg') center/cover no-repeat; }
+    .pros { background: linear-gradient(rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('assets/fond_cosmo_only.jpg') center/cover no-repeat; }
     .pros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
     .pros .card { background: rgba(5,5,5,0.6); }
 
@@ -152,7 +153,7 @@
   <nav class="top">
     <a href="index.html" class="brand">
       <img src="assets/logo_faucon_fin.jpg" alt="Horus AIS" />
-      <span>Horus AIS</span>
+      <img src="assets/logo_text.jpg" alt="Horus AIS" class="logo-text" />
     </a>
     <ul>
       <li><a href="index.html#prestations">Prestations</a></li>
