@@ -111,11 +111,16 @@
     .card p { color: var(--muted); font-size: 0.88rem; }
     .card .price { color: var(--text); font-size: 0.8rem; margin-top: 0.8rem; letter-spacing: 0.05em; }
 
-    /* About / hero image */
-    .about { background: #050505; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
-    .about img { border-radius: 4px; border: 1px solid rgba(212,175,55,0.15); }
+    /* About — hero.jpg en fond plein écran, texte à gauche */
+    .about {
+      position: relative;
+      min-height: 80vh;
+      display: flex; align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.55) 55%, rgba(5,5,5,0.25) 100%),
+        url('assets/hero.jpg') right center/cover no-repeat;
+    }
+    .about .wrap { position: relative; z-index: 2; max-width: 560px; }
     .about h2 { color: var(--gold); font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; font-size: 1rem; margin-bottom: 1rem; }
     .about p { color: var(--muted); margin-bottom: 0.9rem; }
     .about ul { list-style: none; padding: 0; }
@@ -124,7 +129,6 @@
 
     /* Contact */
     .contact { background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.92)), url('assets/fond%20_contact.jpg') center/cover no-repeat; text-align: center; }
-    .contact .card-img { width: min(420px, 80vw); margin: 0 auto 1.5rem; border-radius: 4px; border: 1px solid rgba(212,175,55,0.2); }
     .contact .mail { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.05em; }
     .contact .tel { color: var(--muted); margin-top: 0.5rem; }
 
@@ -205,26 +209,22 @@
 
   <!-- À PROPOS -->
   <section class="about" id="apropos">
-    <div class="wrap about-grid">
-      <div>
-        <h2>À propos</h2>
-        <p>Horus AIS, c'est une agence IA souveraine : vos données restent chez vous, sous votre contrôle exclusif. Pas de cloud tiers, pas de fuite.</p>
-        <ul>
-          <li>Dépannage informatique à domicile et à distance</li>
-          <li>Infrastructures et durcissement sécuritaire</li>
-          <li>Déploiement d'IA privée, on-premise</li>
-          <li>Accompagnement à votre rythme, Paris & Sud 77</li>
-        </ul>
-        <p style="margin-top:1.2rem;"><a href="contact.html">Contact →</a></p>
-      </div>
-      <img src="assets/hero.jpg" alt="Horus AIS — Private Sovereign AI Agency" />
+    <div class="wrap">
+      <h2>À propos</h2>
+      <p>Horus AIS, c'est une agence IA souveraine : vos données restent chez vous, sous votre contrôle exclusif. Pas de cloud tiers, pas de fuite.</p>
+      <ul>
+        <li>Dépannage informatique à domicile et à distance</li>
+        <li>Infrastructures et durcissement sécuritaire</li>
+        <li>Déploiement d'IA privée, on-premise</li>
+        <li>Accompagnement à votre rythme, Paris & Sud 77</li>
+      </ul>
+      <p style="margin-top:1.2rem;"><a href="contact.html">Contact →</a></p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap">
-      <img class="card-img" src="assets/carte_visite.jpg" alt="Carte de visite Horus AIS" />
       <h2 class="section-title" style="text-align:center;">Contact</h2>
       <p class="mail"><a href="mailto:contact@horus-ais.com">contact@horus-ais.com</a></p>
       <p class="tel"><a href="tel:+33768435963">07 68 43 59 63</a></p>
