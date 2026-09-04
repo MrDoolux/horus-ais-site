@@ -56,26 +56,25 @@
       margin-bottom: 1.75rem;
       cursor: pointer;
       user-select: none;
-      isolation: isolate; /* crée un contexte d'empilement propre */
+      isolation: isolate;
     }
 
     .logo-wrap img {
       position: relative;
-      z-index: 1;              /* image en arrière-plan */
+      z-index: 1;
       display: block;
       width: 100%;
       height: auto;
       border-radius: 4px;
       filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.18));
       transition: filter 0.4s ease;
-      pointer-events: none;   /* laisse les événements souris au conteneur */
+      pointer-events: none;
     }
 
     .logo-wrap:hover img {
       filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.35));
     }
 
-    /* Canvas particles — DOIT être au-dessus de l'image */
     #dust-canvas {
       position: absolute;
       top: 0;
@@ -83,7 +82,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 10;             /* clairement au-dessus */
+      z-index: 10;
     }
 
     .tagline {
@@ -183,8 +182,7 @@
 
   <main class="hero">
     <div class="logo-wrap" id="logo-wrap">
-      <!-- Place ton image ici (renomme-la horus-ais.png ou change le src) -->
-      <img src="assets/logo_faucon_fin.jpg" alt="Horus AIS" id="logo-img" />
+      <img src="assets/face_web.jpg" alt="Horus AIS" id="logo-img" />
       <canvas id="dust-canvas"></canvas>
     </div>
 
@@ -207,27 +205,22 @@
   <footer>Horus AIS · Lab cybersécurité</footer>
 
   <script>
-    /* ============================================================
-       Dust particles — golden hieroglyphs + Matrix symbols
-       Hover / move over the logo → blow a cloud of sacred dust
-       ============================================================ */
     (function () {
       const wrap = document.getElementById("logo-wrap");
       const canvas = document.getElementById("dust-canvas");
       const ctx = canvas.getContext("2d");
 
-      // Characters pool — enrichi
       const hieroglyphs = [
-        "𓂀", "𓋹", "𓆣", "𓁹", "𓃀", "𓏏", "𓊃", "𓈖", "𓇋", "𓎛",
-        "𓄿", "𓍯", "𓃭", "𓆑", "𓅓", "𓏲", "𓊪", "𓂋", "𓏤", "𓇳",
-        "𓊨", "𓁶", "𓃂", "𓆓", "𓋴", "𓈎", "𓍿", "𓄡", "𓏥", "𓊖"
+        "\ud83c\udc80", "\ud83c\udc79", "\ud83c\udc23", "\ud83c\udc79", "\ud83c\udc00", "\ud83c\udc4f", "\ud83c\udc03", "\ud83c\udc16", "\ud83c\udc4b", "\ud83c\udc5b",
+        "\ud83c\udc3f", "\ud83c\udd6f", "\ud83c\udc2d", "\ud83c\udc11", "\ud83c\udc13", "\ud83c\udd72", "\ud83c\udc2a", "\ud83c\udc0b", "\ud83c\udd64", "\ud83c\udc33",
+        "\ud83c\udc28", "\ud83c\udc76", "\ud83c\udc02", "\ud83c\udc13", "\ud83c\udc74", "\ud83c\udc0e", "\ud83c\udd5f", "\ud83c\udc21", "\ud83c\udd65", "\ud83c\udc16"
       ];
       const matrix = [
-        "ア", "カ", "サ", "タ", "ナ", "ハ", "マ", "ヤ", "ラ", "ワ",
-        "イ", "キ", "シ", "チ", "ニ", "ヒ", "ミ", "リ", "ウ", "ク",
-        "ス", "ツ", "ヌ", "フ", "ム", "ユ", "ル", "エ", "ケ", "セ",
-        "0", "1", "7", "ゼ", "ク", "ゾ", "ダ", "バ", "パ", "ン",
-        "Σ", "Ω", "Δ", "Ψ", "λ", "μ", "π", "τ"
+        "\u30a2", "\u30ab", "\u30b5", "\u30bf", "\u30ca", "\u30cf", "\u30de", "\u30e4", "\u30e9", "\u30ef",
+        "\u30a4", "\u30ad", "\u30b7", "\u30c1", "\u30cb", "\u30d2", "\u30df", "\u30ea", "\u30a6", "\u30af",
+        "\u30b9", "\u30c4", "\u30cc", "\u30d5", "\u30e0", "\u30e6", "\u30eb", "\u30a8", "\u30b1", "\u30bb",
+        "0", "1", "7", "\u30bc", "\u30af", "\u30be", "\u30c0", "\u30d0", "\u30d1", "\u30f3",
+        "\u03a3", "\u03a9", "\u0394", "\u03a8", "\u03bb", "\u03bc", "\u03c0", "\u03c4"
       ];
       const allChars = [...hieroglyphs, ...matrix];
 
@@ -238,7 +231,6 @@
 
       function resize() {
         const rect = wrap.getBoundingClientRect();
-        // Évite les tailles nulles si l'image n'est pas encore chargée
         if (rect.width < 10 || rect.height < 10) return;
         canvas.width = Math.floor(rect.width * devicePixelRatio);
         canvas.height = Math.floor(rect.height * devicePixelRatio);
@@ -247,7 +239,6 @@
         ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
       }
 
-      // mode = "soft" (hover) ou "burst" (clic / explosion)
       function spawn(x, y, count = 8, mode = "soft") {
         const isBurst = mode === "burst";
         for (let i = 0; i < count; i++) {
@@ -278,7 +269,6 @@
       function tick(now) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Continuous light spawn while hovering
         if (isHovering && now - lastSpawn > 70) {
           const rect = wrap.getBoundingClientRect();
           spawn(rect.width * (0.3 + Math.random() * 0.4), rect.height * (0.35 + Math.random() * 0.3), 2);
@@ -289,7 +279,7 @@
           const p = particles[i];
           p.x += p.vx;
           p.y += p.vy;
-          p.vy -= 0.015;          // slight upward acceleration
+          p.vy -= 0.015;
           p.vx *= 0.99;
           p.life -= p.decay;
           p.rot += p.rotSpeed;
@@ -324,7 +314,6 @@
         if (!animId) animId = requestAnimationFrame(tick);
       }
 
-      // Events — hover (souffle doux)
       wrap.addEventListener("mouseenter", (e) => {
         isHovering = true;
         const rect = wrap.getBoundingClientRect();
@@ -347,7 +336,6 @@
         isHovering = false;
       });
 
-      // Clic → explosion puis entrée dans le site
       wrap.addEventListener("click", (e) => {
         const rect = wrap.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -358,7 +346,6 @@
         setTimeout(function () { window.location.href = "liens.html"; }, 480);
       });
 
-      // Touch support (mobile)
       wrap.addEventListener("touchstart", (e) => {
         isHovering = true;
         const rect = wrap.getBoundingClientRect();
@@ -373,8 +360,6 @@
 
       window.addEventListener("resize", resize);
 
-      // Image handling — resize après chargement pour que le canvas
-      // ait exactement la même taille que l'image
       const img = document.getElementById("logo-img");
 
       function onImageReady() {
@@ -387,7 +372,6 @@
         img.addEventListener("load", onImageReady);
       }
 
-      // Fallback si l'image est introuvable
       img.onerror = () => {
         img.style.display = "none";
         const placeholder = document.createElement("div");
@@ -402,7 +386,6 @@
         resize();
       };
 
-      // Premier resize de sécurité
       setTimeout(resize, 100);
     })();
   </script>
