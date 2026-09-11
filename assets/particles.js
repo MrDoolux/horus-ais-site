@@ -35,7 +35,7 @@
   function tick(now) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (hover && now - last > 70) {
-      const zone = activeZones[0];
+      const zone = activeZones.find(z => z.matches(":hover")) || activeZones[0];
       if (zone) {
         const r = zone.getBoundingClientRect();
         spawn(r.left + r.width * 0.5, r.top + r.height * 0.5, 2, false);
