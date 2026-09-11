@@ -51,25 +51,25 @@ nav.top ul a.current { color: var(--gold); }
 .hero.cosmos {
   background:
     linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.85)),
-    url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+    url("assets/fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
   min-height: 70vh;
   background:
     linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.92)),
-    url("fond_presentatio_1920x1080.jpg") center / cover no-repeat;
+    url("assets/fond_presentatio_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.contact-bg {
   min-height: 70vh;
   background:
     linear-gradient(rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.92)),
-    url("fond_contact_1920x1080.jpg") center / cover no-repeat;
+    url("assets/fond_contact_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.logo-bg {
   min-height: 50vh;
   background:
     linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.88)),
-    url("logo_text_1920x1080.jpg") center / cover no-repeat;
+    url("assets/logo_text_1920x1080.jpg") center / cover no-repeat;
 }
 .hero .logo-wrap {
   position: relative;
@@ -120,7 +120,7 @@ section { padding: 5rem 1.5rem; }
   display: flex; align-items: center;
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.55) 55%, rgba(5, 5, 5, 0.25) 100%),
-    url("hero_1920x1080.jpg") right center / cover no-repeat;
+    url("assets/hero_1920x1080.jpg") right center / cover no-repeat;
 }
 .about .wrap { max-width: 560px; }
 .about h1, .about h2 {
@@ -154,12 +154,12 @@ section { padding: 5rem 1.5rem; }
 .particuliers, .prestations {
   background:
     linear-gradient(rgba(5, 5, 5, 0.75), rgba(5, 5, 5, 0.92)),
-    url("fond_presentatio_1920x1080.jpg") center / cover no-repeat;
+    url("assets/fond_presentatio_1920x1080.jpg") center / cover no-repeat;
 }
 .pros {
   background:
     linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.95)),
-    url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+    url("assets/fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .tarifs { background: #050505; }
 .table-wrap { overflow-x: auto; border: 1px solid rgba(212, 175, 55, 0.15); }
