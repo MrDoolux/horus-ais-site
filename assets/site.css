@@ -68,7 +68,7 @@ nav.top ul a.current { color: var(--gold); }
 .hero.logo-bg {
   min-height: 50vh;
   background:
-    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 0.88)),
+    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.88)),
     url("logo_text_1920x1080.jpg") center / cover no-repeat;
 }
 .hero .logo-wrap {
@@ -99,7 +99,7 @@ nav.top ul a.current { color: var(--gold); }
 .hero .actions {
   position: absolute;
   left: 50%;
-  top: 18%;
+  top: 22%;
   transform: translate(-50%, -50%);
   z-index: 20;
   margin: 0;
@@ -146,7 +146,7 @@ section { padding: 5rem 1.5rem; }
 .about p { color: var(--muted); margin-bottom: 0.9rem; }
 .about ul { list-style: none; }
 .about li {
-  color: #d0c2; padding: 0.4rem 0 0.4rem 1.4rem;
+  color: #d8d0c2; padding: 0.4rem 0 0.4rem 1.4rem;
   position: relative;
 }
 .about li::before {
@@ -182,7 +182,7 @@ section { padding: 5rem 1.5rem; }
 table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 th, td { text-align: left; padding: 0.9rem 1.2rem; border-bottom: 1px solid #1a1a1a; }
 th { color: var(--gold); font-weight: 400; text-transform: uppercase; font-size: 0.78rem; }
-td { color: #d0c2; }
+td { color: #d8d0c2; }
 .note { color: #5a5348; font-size: 0.78rem; margin-top: 1.2rem; }
 
 .cta { text-align: center; background: #030303; }
@@ -222,7 +222,7 @@ footer .copy { color: #3a3530; font-size: 0.7rem; }
 
 @media (max-width: 640px) {
   .hero .actions {
-    top: 30%;
+    top: 26%;
     gap: 0.6rem;
   }
   .btn {
