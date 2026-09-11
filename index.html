@@ -1,94 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Horus AIS — Souveraineté. Contrôle. Confiance.</title>
-<style>
-:root{--gold:#d4af37;--bg:#050505;--text:#e8e0d0;--muted:#a89f8c}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,sans-serif}
-a{color:var(--gold);text-decoration:none}
-img{max-width:100%;display:block}
-nav.top{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(5,5,5,.85);border-bottom:1px solid rgba(212,175,55,.15)}
-nav.top .brand{display:flex;align-items:center;gap:.6rem}
-nav.top .brand img{width:34px;height:34px;border-radius:50%}
-nav.top .brand span{color:var(--gold);letter-spacing:.18em;font-size:.85rem;text-transform:uppercase}
-nav.top ul{display:flex;gap:1.4rem;list-style:none}
-nav.top ul a{color:var(--muted);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
-@media(max-width:640px){nav.top ul{display:none}}
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 4rem;background:linear-gradient(rgba(5,5,5,.55),rgba(5,5,5,.85)),url("assets/fond_cosmos_1920x1080.jpg") center/cover no-repeat}
-.hero .logo-wrap{position:relative;width:min(680px,90vw);margin-bottom:1.5rem;cursor:pointer}
-.hero .logo-wrap img{width:100%;height:auto;border-radius:4px}
-#dust-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:10}
-.hero h1{font-size:clamp(1.4rem,4vw,2.2rem);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:.8rem}
-.hero .tagline{color:var(--muted);max-width:480px;margin-bottom:2rem}
-.actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
-.btn{padding:.85rem 1.7rem;border:1px solid rgba(212,175,55,.45);color:var(--gold);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
-.btn.primary{background:rgba(212,175,55,.1)}
-.scroll-hint{position:absolute;bottom:1.5rem;color:#5a5348;font-size:.7rem;letter-spacing:.2em}
-.about{min-height:80vh;display:flex;align-items:center;padding:5rem 1.5rem;background:linear-gradient(90deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.55) 55%,rgba(5,5,5,.25) 100%),url("assets/hero_1920x1080.jpg") right center/cover no-repeat}
-.about .wrap{max-width:560px}
-.about h2{color:var(--gold);font-weight:400;letter-spacing:.16em;text-transform:uppercase;font-size:1rem;margin-bottom:1rem}
-.about p{color:var(--muted);margin-bottom:.9rem}
-.about ul{list-style:none}
-.about li{color:#d8d0c2;padding:.4rem 0 .4rem 1.4rem;position:relative}
-.about li::before{content:"▶";position:absolute;left:0;color:var(--gold);font-size:.7rem;top:.55rem}
-footer{background:#030303;border-top:1px solid rgba(212,175,55,.12);padding:2rem 1.5rem;text-align:center}
-footer .links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
-footer .links a{color:#5a5348;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
-footer .copy{color:#3a3530;font-size:.7rem}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horus AIS — Souveraineté. Contrôle. Confiance.</title>
+  <meta name="description" content="Horus AIS — Infrastructure de défense personnelle. Lab cybersécurité documenté. IA privée, sous votre contrôle exclusif." />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
-<nav class="top">
-<a href="index.html" class="brand"><img src="assets/faucon_adulte_blue.jpg" alt="Horus AIS"><span>Horus AIS</span></a>
-<ul>
-<li><a href="#apropos">À propos</a></li>
-<li><a href="prestations.html">Prestations</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="mentions-legales.html">Mentions</a></li>
-</ul>
-</nav>
-<header class="hero" id="accueil">
-<div class="logo-wrap" id="logo-wrap">
-<img src="assets/face_web.jpg" alt="Horus AIS" id="logo-img">
-<canvas id="dust-canvas"></canvas>
-</div>
-<h1>Souveraineté. Contrôle. Confiance.</h1>
-<p class="tagline">Infrastructure de défense personnelle. Lab cybersécurité documenté. Votre IA privée, sous votre contrôle exclusif.</p>
-<div class="actions">
-<a class="btn primary" href="#apropos">Découvrir</a>
-<a class="btn" href="contact.html">Me contacter</a>
-<a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
-</div>
-<div class="scroll-hint">DÉFILER ↓</div>
-</header>
-<section class="about" id="apropos">
-<div class="wrap">
-<h2>À propos</h2>
-<p>Horus AIS, c'est une agence IA souveraine : vos données restent chez vous, sous votre contrôle exclusif. Pas de cloud tiers, pas de fuite.</p>
-<ul>
-<li>Dépannage informatique à domicile et à distance</li>
-<li>Infrastructures et durcissement sécuritaire</li>
-<li>Déploiement d'IA privée, on-premise</li>
-<li>Accompagnement à votre rythme, Paris &amp; Sud 77</li>
-</ul>
-<p style="margin-top:1.2rem"><a href="contact.html">Contact →</a></p>
-</div>
-</section>
-<footer>
-<div class="links">
-<a href="#accueil">Accueil</a>
-<a href="apropos.html">À propos</a>
-<a href="prestations.html">Prestations</a>
-<a href="contact.html">Contact</a>
-<a href="liens.html">Liens</a>
-<a href="mentions-legales.html">Mentions légales</a>
-</div>
-<p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
-</footer>
-<script src="assets/particles.js"></script>
+  <!-- Barre fixe : chaque lien ouvre une page, plus d'ancre morte. -->
+  <nav class="top">
+    <a href="index.html" class="brand">
+      <img src="assets/faucon_adulte_blue.jpg" alt="Horus AIS" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a class="current" href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="prestations.html">Prestations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mentions-legales.html">Mentions</a></li>
+    </ul>
+  </nav>
+
+  <!-- Porte : plaque or + cosmos + lettres (particles.js). -->
+  <header class="hero cosmos" id="accueil">
+    <div class="logo-wrap" id="logo-wrap">
+      <img src="assets/face_web.jpg" alt="Horus AIS" id="logo-img" />
+      <canvas id="dust-canvas"></canvas>
+    </div>
+    <h1>Souveraineté. Contrôle. Confiance.</h1>
+    <p class="tagline">Infrastructure de défense personnelle. Lab cybersécurité documenté. Votre IA privée, sous votre contrôle exclusif.</p>
+    <div class="actions">
+      <a class="btn primary" href="apropos.html">Découvrir</a>
+      <a class="btn" href="contact.html">Me contacter</a>
+      <a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="scroll-hint">DÉFILER ↓</div>
+  </header>
+
+  <!-- Aperçu tarifs — la page complète est prestations.html -->
+  <section class="prestations" id="prestations">
+    <div class="wrap">
+      <h2 class="section-title">Prestations</h2>
+      <p class="section-sub">Particuliers d'abord. Professionnels sur devis. TVA non applicable, art. 293 B du CGI.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Dépannage</h3>
+          <p>PC, box, messagerie — remise en route rapide, à domicile ou à distance.</p>
+          <p class="price"><span>40–50 €</span> / h à distance</p>
+        </div>
+        <div class="card">
+          <h3>Infrastructures</h3>
+          <p>Installation, maintenance, durcissement, accès distant. Pour pros sur devis.</p>
+          <p class="price">Devis sur mesure</p>
+        </div>
+        <div class="card">
+          <h3>IA chez vous</h3>
+          <p>Déploiement d'IA privée, sous votre contrôle exclusif.</p>
+          <p class="price">Sur devis</p>
+        </div>
+        <div class="card">
+          <h3>Sauvegarde &amp; sécu</h3>
+          <p>Sauvegarde et bases de protection des données, à votre rythme.</p>
+          <p class="price"><span>90–130 €</span> forfait</p>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:2rem;">
+        <a class="btn" href="prestations.html">Voir tous les tarifs →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="about" id="apropos">
+    <div class="wrap">
+      <h2>À propos</h2>
+      <p>Horus AIS, c'est une agence IA souveraine : vos données restent chez vous, sous votre contrôle exclusif. Pas de cloud tiers, pas de fuite.</p>
+      <ul>
+        <li>Dépannage informatique à domicile et à distance</li>
+        <li>Infrastructures et durcissement sécuritaire</li>
+        <li>Déploiement d'IA privée, on-premise</li>
+        <li>Accompagnement à votre rythme, Paris &amp; Sud 77</li>
+      </ul>
+      <p><a href="apropos.html">Lire la page À propos →</a></p>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">Contact</h2>
+      <p class="section-sub" style="margin:0 auto 1.5rem;text-align:center;">Paris &amp; Sud 77 — à domicile ou à distance.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:contact@horus-ais.com">Écrire</a>
+        <a class="btn" href="tel:+33768435963">Appeler</a>
+        <a class="btn" href="contact.html">Fiche contact</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="prestations.html">Prestations</a>
+      <a href="contact.html">Contact</a>
+      <a href="liens.html">Liens</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
+  </footer>
+  <script src="assets/particles.js"></script>
 </body>
 </html>
