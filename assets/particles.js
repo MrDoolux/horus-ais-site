@@ -6,7 +6,7 @@
   const chars = "HORUSAIS01*+".split("");
   let particles = [], animId = null, hover = false, last = 0;
   function resize() {
-    if (r.width < 10) return;
+    if (window.innerWidth < 10) return;
     canvas.width = window.innerWidth * devicePixelRatio;
     canvas.height = window.innerHeight * devicePixelRatio;
     canvas.style.width = "100%";
