@@ -1,17 +1,16 @@
 (function () {
-  const wrap = document.getElementById("logo-wrap");
+  const wrap = document.body;
   const canvas = document.getElementById("dust-canvas");
   if (!wrap || !canvas) return;
   const ctx = canvas.getContext("2d");
   const chars = "HORUSAIS01*+".split("");
   let particles = [], animId = null, hover = false, last = 0;
   function resize() {
-    const r = wrap.getBoundingClientRect();
     if (r.width < 10) return;
-    canvas.width = Math.floor(r.width * devicePixelRatio);
-    canvas.height = Math.floor(r.height * devicePixelRatio);
-    canvas.style.width = r.width + "px";
-    canvas.style.height = r.height + "px";
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
     ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
   }
   function spawn(x, y, n, burst) {
