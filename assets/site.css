@@ -139,6 +139,11 @@ nav.top ul a.current { color: var(--gold); }
   bottom: auto;
   width: max-content;
 }
+
+.hero.liens .liens-center .btn {
+  width: 100%;
+}
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 0.85rem 1.7rem;
