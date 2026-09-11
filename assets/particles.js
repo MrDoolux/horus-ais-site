@@ -1,10 +1,11 @@
 (function () {
-  const wrap = document.body;
   const canvas = document.getElementById("dust-canvas");
-  if (!wrap || !canvas) return;
+  if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const chars = "HORUSAIS01*+".split("");
   let particles = [], animId = null, hover = false, last = 0;
+  const activeZones = [];
+
   function resize() {
     if (window.innerWidth < 10) return;
     canvas.width = window.innerWidth * devicePixelRatio;
@@ -13,6 +14,7 @@
     canvas.style.height = "100%";
     ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
   }
+
   function spawn(x, y, n, burst) {
     for (let i = 0; i < n; i++) {
       const a = Math.random() * Math.PI * 2;
@@ -29,11 +31,15 @@
       });
     }
   }
+
   function tick(now) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (hover && now - last > 70) {
-      const r = wrap.getBoundingClientRect();
-      spawn(Math.random() * window.innerWidth, Math.random() * window.innerHeight, 2, false);
+      const zone = activeZones[0];
+      if (zone) {
+        const r = zone.getBoundingClientRect();
+        spawn(r.left + r.width * 0.5, r.top + r.height * 0.5, 2, false);
+      }
       last = now;
     }
     for (let i = particles.length - 1; i >= 0; i--) {
@@ -51,27 +57,35 @@
     }
     animId = (particles.length || hover) ? requestAnimationFrame(tick) : null;
   }
+
   function loop() { if (!animId) animId = requestAnimationFrame(tick); }
-  wrap.addEventListener("mouseenter", function (e) {
-    hover = true;
-    const r = wrap.getBoundingClientRect();
-    spawn(e.clientX - r.left, e.clientY - r.top, 14, false);
-    loop();
-  });
-  wrap.addEventListener("mousemove", function (e) {
-    if (!hover) return;
-    const now = performance.now();
-    if (now - last < 45) return;
-    const r = wrap.getBoundingClientRect();
-    spawn(e.clientX - r.left, e.clientY - r.top, 3, false);
-    last = now; loop();
-  });
-  wrap.addEventListener("mouseleave", function () { hover = false; });
-  wrap.addEventListener("click", function (e) {
-    const r = wrap.getBoundingClientRect();
-    spawn(e.clientX - r.left, e.clientY - r.top, 36, true);
-    loop();
-  });
+
+  function bindZone(el) {
+    if (!el) return;
+    activeZones.push(el);
+    el.addEventListener("mouseenter", function (e) {
+      hover = true;
+      const r = el.getBoundingClientRect();
+      spawn(e.clientX, e.clientY, 14, false);
+      loop();
+    });
+    el.addEventListener("mousemove", function (e) {
+      if (!hover) return;
+      const now = performance.now();
+      if (now - last < 45) return;
+      spawn(e.clientX, e.clientY, 3, false);
+      last = now; loop();
+    });
+    el.addEventListener("mouseleave", function () { hover = false; });
+    el.addEventListener("click", function (e) {
+      spawn(e.clientX, e.clientY, 36, true);
+      loop();
+    });
+  }
+
+  bindZone(document.getElementById("logo-wrap"));
+  document.querySelectorAll(".actions .btn").forEach(bindZone);
+
   window.addEventListener("resize", resize);
   const img = document.getElementById("logo-img");
   if (img && img.complete) resize();
