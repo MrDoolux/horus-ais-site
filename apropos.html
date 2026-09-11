@@ -5,74 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>À propos — Horus AIS</title>
   <meta name="description" content="Horus AIS — agence IA souveraine. Lab cybersécurité documenté. Paris et Sud 77." />
-  <style>
-    :root {
-      --gold: #d4af37;
-      --bg: #050505;
-      --text: #e8e0d0;
-      --muted: #a89f8c;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", system-ui, sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--gold); text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    nav.top {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: rgba(5,5,5,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(212,175,55,0.15);
-    }
-    nav.top .brand { display: flex; align-items: center; gap: 0.6rem; }
-    nav.top .brand img { width: 34px; height: 34px; border-radius: 50%; }
-    nav.top .brand span { color: var(--gold); letter-spacing: 0.18em; font-size: 0.85rem; text-transform: uppercase; }
-    nav.top ul { display: flex; gap: 1.4rem; list-style: none; }
-    nav.top ul a { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
-    nav.top ul a:hover,
-    nav.top ul a.current { color: var(--gold); }
-    @media (max-width: 640px) { nav.top ul { display: none; } }
-
-    .about {
-      position: relative;
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 6rem 1.5rem 4rem;
-      background:
-        linear-gradient(90deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.55) 55%, rgba(5,5,5,0.25) 100%),
-        url('assets/hero_1920x1080.jpg') right center/cover no-repeat;
-    }
-    .about .wrap { position: relative; z-index: 2; max-width: 560px; }
-    .about h1 {
-      color: var(--gold); font-weight: 400; letter-spacing: 0.16em;
-      text-transform: uppercase; font-size: 1rem; margin-bottom: 1rem;
-    }
-    .about p { color: var(--muted); margin-bottom: 0.9rem; }
-    .about ul { list-style: none; padding: 0; margin-bottom: 1.2rem; }
-    .about ul li {
-      color: #d8d0c2; padding: 0.4rem 0 0.4rem 1.4rem;
-      position: relative; font-size: 0.92rem;
-    }
-    .about ul li::before {
-      content: "▶"; position: absolute; left: 0; color: var(--gold);
-      font-size: 0.7rem; top: 0.55rem;
-    }
-
-    footer {
-      background: #030303; border-top: 1px solid rgba(212,175,55,0.12);
-      padding: 2rem 1.5rem; text-align: center;
-    }
-    footer .links { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
-    footer .links a { color: #5a5348; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
-    footer .links a:hover { color: var(--gold); }
-    footer .copy { color: #3a3530; font-size: 0.7rem; letter-spacing: 0.1em; }
-  </style>
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <nav class="top">
@@ -97,9 +30,9 @@
         <li>Dépannage informatique à domicile et à distance</li>
         <li>Infrastructures et durcissement sécuritaire</li>
         <li>Déploiement d'IA privée, on-premise</li>
-        <li>Accompagnement à votre rythme, Paris & Sud 77</li>
+        <li>Accompagnement à votre rythme, Paris &amp; Sud 77</li>
       </ul>
-      <p><a href="contact.html">Contact →</a></p>
+      <p><a class="btn primary" href="contact.html">Contact</a></p>
     </div>
   </section>
 

@@ -5,33 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Horus AIS</title>
   <link rel="stylesheet" href="assets/site.css" />
-  <style>
-    /* Fond propre à cette page */
-    .page-hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 7rem 1.5rem 4rem;
-      background:
-        linear-gradient(rgba(5, 5, 5, 0.75), rgba(5, 5, 5, 0.92)),
-        url("assets/fond_contact_1920x1080.jpg") center / cover no-repeat;
-    }
-    .page-hero h1 {
-      color: var(--gold);
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    .page-hero p { color: var(--muted); margin-bottom: 0.7rem; }
-    .page-hero .mail { font-size: 1.1rem; }
-  </style>
 </head>
 <body>
-  <!-- Menu identique sur toutes les pages -->
   <nav class="top">
     <a href="index.html" class="brand">
       <img src="assets/faucon_adulte_blue.jpg" alt="Horus AIS" />
@@ -41,26 +16,30 @@
       <li><a href="index.html">Accueil</a></li>
       <li><a href="apropos.html">À propos</a></li>
       <li><a href="prestations.html">Prestations</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a class="current" href="contact.html">Contact</a></li>
       <li><a href="mentions-legales.html">Mentions</a></li>
     </ul>
   </nav>
 
-  <header class="page-hero">
-    <div>
-      <h1>Contact</h1>
-      <p>Ludovic — Horus AIS</p>
-      <p class="mail"><a href="mailto:contact@horus-ais.com">contact@horus-ais.com</a></p>
-      <p><a href="tel:+33768435963">07 68 43 59 63</a></p>
-      <p>Paris & Sud 77 (Melun, Fontainebleau) — à domicile ou à distance.</p>
-      <p>Adresse légale (pas de visite) : 57 boulevard Pereire, 75017 Paris.</p>
-      <div class="actions" style="margin-top:1.6rem;">
-        <a class="btn primary" href="mailto:contact@horus-ais.com">Écrire</a>
-        <a class="btn" href="tel:+33768435963">Appeler</a>
-        <a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <header class="hero contact-bg">
+    <h1>Contact</h1>
+    <p class="tagline">Paris &amp; Sud 77 — à domicile ou à distance.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:contact@horus-ais.com">Écrire</a>
+      <a class="btn" href="tel:+33768435963">Appeler</a>
+      <a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </header>
+
+  <section class="page-body">
+    <div class="wrap narrow">
+      <p>Ludovic — Horus AIS</p>
+      <p>Mail : <a href="mailto:contact@horus-ais.com">contact@horus-ais.com</a></p>
+      <p>Tél. : <a href="tel:+33768435963">07 68 43 59 63</a></p>
+      <p>Zone : Paris et Sud 77 (Melun, Fontainebleau).</p>
+      <p>Adresse légale (pas de visite) : 57 boulevard Pereire, 75017 Paris.</p>
+    </div>
+  </section>
 
   <footer>
     <div class="links">
