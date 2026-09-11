@@ -97,15 +97,15 @@ nav.top ul a.current { color: var(--gold); }
 }
 .hero .tagline { color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
 .actions { display: flex; flex-direction: column; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.hero .actions {
+.hero .actions {   
   position: absolute;
   left: 50%;
   bottom: 4.5rem;
   transform: translateX(-50%);
   z-index: 20;
   margin: 0;
-  width: max-content;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 90vw; 
 }
 .btn {
   display: inline-flex; align-items: center;
