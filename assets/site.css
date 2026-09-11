@@ -258,6 +258,103 @@ footer .links a {
 footer .links a:hover { color: var(--gold); }
 footer .copy { color: #3a3530; font-size: 0.7rem; }
 
+/* Mentions légales uniquement */
+body.mentions .page-body,
+body.mentions .block p {
+  font-size: 1.125rem;
+}
+body.mentions .block h2 {
+  font-size: 0.95rem;
+}
+body.mentions .btn {
+  font-size: 1rem;
+}
+body.mentions footer .links a {
+  font-size: 0.9rem;
+}
+body.mentions footer .copy {
+  font-size: 0.8rem;
+}
+/* Liens uniquement */
+body.liens .tagline {
+  font-size: 1.125rem;
+}
+body.liens .btn {
+  font-size: 1rem;
+}
+body.liens footer .links a {
+  font-size: 0.9rem;
+}
+body.liens footer .copy {
+  font-size: 0.8rem;
+}
+/* Contact uniquement */
+body.contact .page-body {
+  font-size: 1.125rem;
+}
+body.contact .btn {
+  font-size: 1rem;
+}
+body.contact footer .links a {
+  font-size: 0.9rem;
+}
+body.contact footer .copy {
+  font-size: 0.8rem;
+}
+
+/* Prestations uniquement */
+body.page-prestations .section-sub,
+body.page-prestations .card p,
+body.page-prestations .note {
+  font-size: 1.125rem;
+}
+body.page-prestations .card h3 {
+  font-size: 1.05rem;
+}
+body.page-prestations th,
+body.page-prestations td {
+  font-size: 1rem;
+}
+body.page-prestations .btn {
+  font-size: 1rem;
+}
+body.page-prestations footer .links a {
+  font-size: 0.9rem;
+}
+body.page-prestations footer .copy {
+  font-size: 0.8rem;
+}
+/* À propos uniquement */
+body.page-apropos .about p,
+body.page-apropos .about li {
+  font-size: 1.125rem;
+}
+body.page-apropos .about h1 {
+  font-size: 1.15rem;
+}
+body.page-apropos .btn {
+  font-size: 1rem;
+}
+body.page-apropos footer .links a {
+  font-size: 0.9rem;
+}
+body.page-apropos footer .copy {
+  font-size: 0.8rem;
+}
+
+/* Accueil uniquement */
+body.page-accueil .tagline {
+  font-size: 1.125rem;
+}
+body.page-accueil .btn {
+  font-size: 1rem;
+}
+body.page-accueil footer .links a {
+  font-size: 0.9rem;
+}
+body.page-accueil footer .copy {
+  font-size: 0.8rem;
+}
 @media (max-width: 640px) {
   .hero .actions {
     bottom: 3.5rem;
