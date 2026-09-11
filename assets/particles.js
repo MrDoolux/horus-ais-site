@@ -33,7 +33,7 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (hover && now - last > 70) {
       const r = wrap.getBoundingClientRect();
-      spawn(r.width * 0.5, r.height * 0.45, 2, false);
+      spawn(Math.random() * window.innerWidth, Math.random() * window.innerHeight, 2, false);
       last = now;
     }
     for (let i = particles.length - 1; i >= 0; i--) {
