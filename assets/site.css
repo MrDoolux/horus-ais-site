@@ -125,7 +125,7 @@ nav.top ul a.current { color: var(--gold); }
   top: 38%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  width: max-content;
+  width: min(520px, 90vw);
   max-width: 90vw;
   display: flex;
   flex-direction: column;
@@ -137,7 +137,7 @@ nav.top ul a.current { color: var(--gold); }
   transform: none;
   left: auto;
   bottom: auto;
-  width: max-content;
+  width: 100%;
 }
 
 .hero.liens .liens-center .btn {
