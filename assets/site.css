@@ -68,7 +68,7 @@ nav.top ul a.current { color: var(--gold); }
 .hero.logo-bg {
   min-height: 50vh;
   background:
-    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.88)),
+    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 0.88)),
     url("logo_text_1920x1080.jpg") center / cover no-repeat;
 }
 .hero .logo-wrap {
@@ -99,7 +99,7 @@ nav.top ul a.current { color: var(--gold); }
 .hero .actions {
   position: absolute;
   left: 50%;
-  top: 22%;
+  top: 18%;
   transform: translate(-50%, -50%);
   z-index: 20;
   margin: 0;
@@ -222,7 +222,7 @@ footer .copy { color: #3a3530; font-size: 0.7rem; }
 
 @media (max-width: 640px) {
   .hero .actions {
-    top: 34%;
+    top: 30%;
     gap: 0.6rem;
   }
   .btn {
