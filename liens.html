@@ -4,42 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Liens — Horus AIS</title>
-  <meta name="description" content="Contacter Horus AIS — informatique à domicile et à distance, Paris et Sud 77." />
-  <style>
-    :root { --gold:#d4af37; --bg:#050505; --text:#e8e0d0; --muted:#a89f8c; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body {
-      min-height:100vh;
-      background:
-        linear-gradient(rgba(5,5,5,0.55), rgba(5,5,5,0.85)),
-        url('assets/fond_cosmo_only.jpg') center/cover no-repeat fixed;
-      color:var(--text);
-      font-family:system-ui,Segoe UI,sans-serif;
-      padding:3rem 1.25rem 2rem;
-    }
-    main { max-width:420px; margin:0 auto; text-align:center; }
-    h1 { color:var(--gold); letter-spacing:.2em; font-weight:400; font-size:.85rem; text-transform:uppercase; margin-bottom:.6rem; }
-    p.lead { color:var(--muted); font-size:.95rem; line-height:1.5; margin-bottom:2rem; }
-    a.row { display:block; border:1px solid rgba(212,175,55,.4); color:var(--gold); text-decoration:none; padding:.95rem 1rem; margin-bottom:.75rem; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem; }
-    a.row:hover { background:rgba(212,175,55,.08); }
-    nav { margin-top:2.2rem; font-size:.75rem; }
-    nav a { color:#5a5348; margin:0 .5rem; text-decoration:none; }
-  </style>
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
-  <main>
+  <!-- Barre fixe : mêmes 5 liens que partout -->
+  <nav class="top">
+    <a href="index.html" class="brand">
+      <img src="assets/faucon_adulte_blue.jpg" alt="Horus AIS" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="prestations.html">Prestations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mentions-legales.html">Mentions</a></li>
+    </ul>
+  </nav>
+
+  <!-- Fond cosmos (fichier réel dans assets/) -->
+  <header class="hero cosmos">
     <h1>Horus AIS</h1>
-    <p class="lead">Informatique à domicile et à distance.<br>Paris & Sud 77.</p>
-    <a class="row" href="mailto:contact@horus-ais.com">Écrire — contact@horus-ais.com</a>
-    <a class="row" href="tel:+33768435963">Appeler — 07 68 43 59 63</a>
-    <a class="row" href="https://horus-ais.com">Site</a>
-    <a class="row" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210">LinkedIn</a>
-    <nav>
+    <p class="tagline">Informatique à domicile et à distance. Paris & Sud 77.</p>
+    <div class="actions" style="flex-direction:column;max-width:420px;width:100%;">
+      <a class="btn primary" href="mailto:contact@horus-ais.com">Écrire — contact@horus-ais.com</a>
+      <a class="btn" href="tel:+33768435963">Appeler — 07 68 43 59 63</a>
+      <a class="btn" href="index.html">Site — accueil</a>
+      <a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <footer>
+    <div class="links">
       <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
       <a href="prestations.html">Prestations</a>
       <a href="contact.html">Contact</a>
-      <a href="mentions-legales.html">Mentions</a>
-    </nav>
-  </main>
+      <a href="liens.html">Liens</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
+  </footer>
 </body>
 </html>
