@@ -110,6 +110,9 @@ nav.top ul a.current { color: var(--gold); }
 .hero.contact-bg .actions {
   width: min(520px, 90vw);
 }
+.hero.contact-bg .btn {
+  width: 100%;
+}
 
 .hero.liens .liens-center {
   position: absolute;
