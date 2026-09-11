@@ -99,7 +99,7 @@ nav.top ul a.current { color: var(--gold); }
 .hero .actions {
   position: absolute;
   left: 50%;
-  top: 22%;
+  top: 30%;
   transform: translate(-50%, -50%);
   z-index: 20;
   margin: 0;
@@ -222,7 +222,7 @@ footer .copy { color: #3a3530; font-size: 0.7rem; }
 
 @media (max-width: 640px) {
   .hero .actions {
-    top: 26%;
+    top: 34%;
     gap: 0.6rem;
   }
   .btn {
