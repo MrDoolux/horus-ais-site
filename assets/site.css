@@ -44,7 +44,7 @@ nav.top ul a.current { color: var(--gold); }
   position: relative;
   min-height: 100vh;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: center; justify-content: flex-start;
   text-align: center;
   padding: 6rem 1.5rem 4rem;
 }
@@ -100,15 +100,15 @@ nav.top ul a.current { color: var(--gold); }
 .hero .actions {   
   position: absolute;
   left: 50%;
-  bottom: 4.5rem;
-  transform: translateX(-50%);
+  top: 42%;
+  transform: translate(-50%, -50%);
   z-index: 20;
   margin: 0;
   width: 100%;
   max-width: 90vw; 
 }
 .btn {
-  display: inline-flex; align-items: center;
+  display: inline-flex; align-items: center; justify-content: center;
   padding: 0.85rem 1.7rem;
   border: 1px solid rgba(212, 175, 55, 0.45);
   color: var(--gold); font-size: 0.85rem;
@@ -223,7 +223,8 @@ footer .copy { color: #3a3530; font-size: 0.7rem; }
 
 @media (max-width: 640px) {
   .hero .actions {
-    bottom: 3.5rem;
+    top: 45%;
+    bottom: auto;
     gap: 0.6rem;
   }
   .btn {
