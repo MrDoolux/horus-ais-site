@@ -85,7 +85,9 @@
 
   bindZone(document.getElementById("logo-wrap"));
   document.querySelectorAll(".actions .btn").forEach(bindZone);
-
+  bindZone(document.querySelector(".btn.primary"))
+  
+  
   window.addEventListener("resize", resize);
   const img = document.getElementById("logo-img");
   if (img && img.complete) resize();
