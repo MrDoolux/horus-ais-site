@@ -58,6 +58,23 @@
     }
     .article .box p:last-child { margin-bottom: 0; }
     .article .meta { color: #6a6358; font-size: 0.82rem; letter-spacing: 0.06em; margin-bottom: 2rem; }
+    figure.shot {
+      margin: 1.4rem 0 1.8rem;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      background: #0a0a0a;
+      padding: 0.4rem 0.4rem 0.7rem;
+    }
+    figure.shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    figure.shot figcaption {
+      color: #8a8274;
+      font-size: 0.82rem;
+      padding: 0.55rem 0.35rem 0;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body class="page-article">
@@ -99,12 +116,28 @@
         <p><strong>L'atelier</strong> reste derrière le pare-feu et le tunnel. Pages de travail, noms de lab, ce qui a le droit de tomber quand la machine s'éteint.</p>
         <p><strong>L'enseigne</strong> sort de Cloudflare Pages : un dépôt Git de fichiers statiques, servi au bord du réseau. Si l'atelier s'arrête, l'enseigne ne s'arrête pas avec.</p>
       </div>
+
+      <figure class="shot">
+        <img src="../assets/notes/enseigne-horus-ais.png" alt="horus-ais.com servi par Cloudflare Pages" />
+        <figcaption>L'enseigne : horus-ais.com, origine Pages. La tour peut être éteinte.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/notes/atelier-lab.png" alt="lab.horus-ais.com servi par le tunnel" />
+        <figcaption>L'atelier : lab.horus-ais.com, encore sur le tunnel et le WAF local.</figcaption>
+      </figure>
+
       <p>Ce n'est pas une défiance envers le lab. C'est l'inverse. Le lab a assez à faire. On ne lui demande plus d'être aussi la devanture.</p>
 
       <h2>Pages, Workers : même menu, deux contrats</h2>
       <p>Sur le tableau de bord Cloudflare, Pages et Workers partagent une entrée. Il faut lire les étiquettes.</p>
       <p><strong>Pages</strong> prend un dépôt, y lit des fichiers, les sert. HTML, CSS, JavaScript de navigateur. Pas de compilation obligatoire. Un site « qui bouge » côté client a sa place ici. Le preset « None », une commande de build vide ou <code>exit 0</code>, le répertoire de sortie à la racine : c'est le contrat statique.</p>
       <p><strong>Workers</strong>, avec Wrangler, c'est l'exécution. Du JavaScript qui tourne chez Cloudflare, pas seulement dans le navigateur. Utile le jour où l'on a vraiment quelque chose à calculer au bord. Ce n'est pas le bon écran pour déposer un dossier de pages. Si le formulaire propose <code>npx wrangler deploy</code> et un jeton d'API, on n'est plus en train de publier une vitrine statique. On revient, on prend l'onglet Pages.</p>
+
+      <figure class="shot">
+        <img src="../assets/notes/pages-pas-workers.png" alt="Cloudflare Create application, onglet Pages" />
+        <figcaption>Même menu. L'onglet Pages, pas l'écran Wrangler.</figcaption>
+      </figure>
+
       <p>Les deux produits se respectent. On ne les oppose pas. On les choisit.</p>
 
       <h2>Le geste, dans l'ordre</h2>
@@ -117,6 +150,12 @@
         <li>Les enregistrements mail (MX) ne se touchent pas. Un nom de domaine porte à la fois un site et une messagerie. Ce n'est pas le même sujet.</li>
         <li>Quand l'enseigne répond depuis Pages, on retire ces noms du tunnel. L'atelier garde les siens.</li>
       </ol>
+
+      <figure class="shot">
+        <img src="../assets/notes/deploy-vert.png" alt="Cloudflare Pages Deployments, production verte" />
+        <figcaption>Deployments : production verte. Un push republie. Pas besoin d'allumer la machine.</figcaption>
+      </figure>
+
       <p>Un <code>git push</code> sur la branche principale republie. Pas de bouton à cliquer à chaque virgule. C'est le minimum d'hygiène pour une vitrine qu'on veut pouvoir corriger sans rallumer une tour.</p>
 
       <h2>Ce que « custom domain » veut dire</h2>
