@@ -64,16 +64,11 @@
       background: #0a0a0a;
       padding: 0.4rem 0.4rem 0.7rem;
     }
-    figure.shot img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    figure.shot img { width: 100%; height: auto; display: block; }
     figure.shot figcaption {
       color: #8a8274;
       font-size: 0.82rem;
       padding: 0.55rem 0.35rem 0;
-      line-height: 1.4;
     }
   </style>
 </head>
@@ -117,13 +112,16 @@
         <p><strong>L'enseigne</strong> sort de Cloudflare Pages : un dépôt Git de fichiers statiques, servi au bord du réseau. Si l'atelier s'arrête, l'enseigne ne s'arrête pas avec.</p>
       </div>
 
+      <!-- Capture 1 : enseigne = Cloudflare Pages (le cloud). Pas la G4. -->
       <figure class="shot">
         <img src="../assets/notes/enseigne-horus-ais.png" alt="horus-ais.com servi par Cloudflare Pages" />
-        <figcaption>L'enseigne : horus-ais.com, origine Pages. La tour peut être éteinte.</figcaption>
+        <figcaption>Capture : horus-ais.com — origine Cloudflare Pages (cloud). La G4 peut être éteinte.</figcaption>
       </figure>
+
+      <!-- Capture 2 : atelier = G4 + tunnel + lab perso. -->
       <figure class="shot">
-        <img src="../assets/notes/atelier-lab.png" alt="lab.horus-ais.com servi par le tunnel" />
-        <figcaption>L'atelier : lab.horus-ais.com, encore sur le tunnel et le WAF local.</figcaption>
+        <img src="../assets/notes/atelier-lab.png" alt="lab.horus-ais.com servi par le tunnel sur la G4" />
+        <figcaption>Capture : lab.horus-ais.com — G4, tunnel, lab perso.</figcaption>
       </figure>
 
       <p>Ce n'est pas une défiance envers le lab. C'est l'inverse. Le lab a assez à faire. On ne lui demande plus d'être aussi la devanture.</p>
@@ -133,9 +131,10 @@
       <p><strong>Pages</strong> prend un dépôt, y lit des fichiers, les sert. HTML, CSS, JavaScript de navigateur. Pas de compilation obligatoire. Un site « qui bouge » côté client a sa place ici. Le preset « None », une commande de build vide ou <code>exit 0</code>, le répertoire de sortie à la racine : c'est le contrat statique.</p>
       <p><strong>Workers</strong>, avec Wrangler, c'est l'exécution. Du JavaScript qui tourne chez Cloudflare, pas seulement dans le navigateur. Utile le jour où l'on a vraiment quelque chose à calculer au bord. Ce n'est pas le bon écran pour déposer un dossier de pages. Si le formulaire propose <code>npx wrangler deploy</code> et un jeton d'API, on n'est plus en train de publier une vitrine statique. On revient, on prend l'onglet Pages.</p>
 
+      <!-- Capture 3 : onglet Pages, pas l'écran Workers / Wrangler. -->
       <figure class="shot">
         <img src="../assets/notes/pages-pas-workers.png" alt="Cloudflare Create application, onglet Pages" />
-        <figcaption>Même menu. L'onglet Pages, pas l'écran Wrangler.</figcaption>
+        <figcaption>Capture : même menu Cloudflare — onglet Pages, pas Workers.</figcaption>
       </figure>
 
       <p>Les deux produits se respectent. On ne les oppose pas. On les choisit.</p>
@@ -151,9 +150,10 @@
         <li>Quand l'enseigne répond depuis Pages, on retire ces noms du tunnel. L'atelier garde les siens.</li>
       </ol>
 
+      <!-- Capture 4 : Deployments, ligne de production verte. -->
       <figure class="shot">
         <img src="../assets/notes/deploy-vert.png" alt="Cloudflare Pages Deployments, production verte" />
-        <figcaption>Deployments : production verte. Un push republie. Pas besoin d'allumer la machine.</figcaption>
+        <figcaption>Capture : Deployments — production verte. Un push republie, sans allumer la G4.</figcaption>
       </figure>
 
       <p>Un <code>git push</code> sur la branche principale republie. Pas de bouton à cliquer à chaque virgule. C'est le minimum d'hygiène pour une vitrine qu'on veut pouvoir corriger sans rallumer une tour.</p>
