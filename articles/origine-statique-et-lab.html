@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deux origines pour un nom — Horus AIS</title>
+  <meta name="description" content="Après un lab derrière OPNsense et un tunnel, pourquoi une vitrine HTML/CSS/JS n'a pas à vivre sur la même origine que l'atelier. Cloudflare Pages, custom domain, mail à part." />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    body.page-article { background: #050505; }
+    .article {
+      padding: 7.5rem 1.5rem 4rem;
+      position: relative;
+      z-index: 10;
+    }
+    .article .wrap { max-width: 720px; }
+    .article .kicker {
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+    .article h1 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: clamp(1.15rem, 3vw, 1.7rem);
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+    }
+    .article .lede {
+      color: var(--text);
+      font-size: 1.12rem;
+      margin-bottom: 2.2rem;
+    }
+    .article h2 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      margin: 2.4rem 0 0.9rem;
+    }
+    .article p, .article li {
+      color: #cfc6b6;
+      font-size: 1.05rem;
+      margin-bottom: 0.95rem;
+    }
+    .article ul, .article ol { padding-left: 1.2rem; margin-bottom: 1.2rem; }
+    .article li { margin-bottom: 0.45rem; }
+    .article .box {
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      background: rgba(10, 10, 10, 0.55);
+      padding: 1.2rem 1.3rem;
+      margin: 1.4rem 0 1.8rem;
+    }
+    .article .box p:last-child { margin-bottom: 0; }
+    .article .meta { color: #6a6358; font-size: 0.82rem; letter-spacing: 0.06em; margin-bottom: 2rem; }
+  </style>
+</head>
+<body class="page-article">
+  <canvas id="dust-canvas"></canvas>
+  <nav class="top">
+    <a href="../index.html" class="brand">
+      <img src="../assets/faucon_adulte_blue.jpg" alt="Horus AIS" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../apropos.html">À propos</a></li>
+      <li><a href="../prestations.html">Prestations</a></li>
+      <li><a class="current" href="origine-statique-et-lab.html">Notes</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../liens.html">Liens</a></li>
+    </ul>
+  </nav>
+
+  <article class="article">
+    <div class="wrap">
+      <p class="kicker">Note de lab · septembre 2026</p>
+      <h1>Deux origines pour un nom de domaine</h1>
+      <p class="meta">Ludovic Suy — TSSR · homelab documenté · vitrine encore en construction</p>
+      <p class="lede">Une page HTML n'a pas à vivre sur la même machine que le laboratoire qui l'a rendue possible. Ce texte raconte pourquoi, après un lab derrière OPNsense, un serveur web local et un tunnel, l'enseigne publique a changé d'origine.</p>
+
+      <h2>D'abord le lab, pas la vitrine</h2>
+      <p>Avant d'avoir un nom qui répond sur Internet, il y a eu un travail de fond : un pare-feu OPNsense, une segmentation réseau, des règles écrites et relues, une machine dédiée qui sert des fichiers web. Rien de tout cela n'était destiné à « paraître ». C'était destiné à tenir : défaut deny, pas de port ouvert à la légère, des services qu'on allume parce qu'on les a compris, pas parce qu'un tutoriel l'exigeait le matin même.</p>
+      <p>Le serveur web local a été validé comme on valide un socle : il répond, il isole les sites par nom, il passe par un WAF, il ne s'offre pas tout seul au WAN. Ensuite seulement est venue l'exposition. Pas un transfert de port 80/443 sur la box. Un tunnel Cloudflare : le monde parle à Cloudflare, Cloudflare parle à la machine, la machine n'ouvre pas la rue.</p>
+      <p>Ça marche. Ça a aussi un prix. Tout ce qui passe dans ce tuyau dépend de la tour. Entretien, coupure, incident réseau, processus tunnel qui lâche : les noms qui vivent là tombent ensemble. Je l'ai vu. J'en ai tiré des fiches, pas un spectacle. Le détail opérationnel reste dans le journal privé. Le principe, lui, se dit ici : une enseigne statique n'a pas à payer la disponibilité de l'atelier.</p>
+
+      <h2>Ce qu'une vitrine est — et ce qu'elle n'est pas</h2>
+      <p>Une vitrine de présentation, aujourd'hui, c'est du HTML, du CSS, éventuellement du JavaScript exécuté dans le navigateur. Des fichiers. Pas une base de paiement, pas un tableau de bord, pas un accès d'administration. Si le besoin grandit vers de l'exécution côté serveur, d'autres outils existent. Ce n'est pas le contrat de cette page-ci.</p>
+      <p>Le site public Horus AIS est une première version. Je le dis sans détour : ce n'est pas une plaquette d'agence bouclée, ce n'est pas un catalogue de prestations à prendre pour argent comptant. C'est une porte. Elle dit qu'un nom existe, qu'une pratique existe, que le travail se documente. Le reste se construira. Ce texte n'est pas là pour vendre l'accueil. Il est là pour fixer un choix d'architecture.</p>
+
+      <h2>Deux origines, deux destins</h2>
+      <p>Une fois le lab validé et le tunnel éprouvé, la question n'était plus « comment faire voir un fichier ». Elle était : <em>où</em> doit vivre le nom de la société ?</p>
+      <div class="box">
+        <p><strong>L'atelier</strong> reste derrière le pare-feu et le tunnel. Pages de travail, noms de lab, ce qui a le droit de tomber quand la machine s'éteint.</p>
+        <p><strong>L'enseigne</strong> sort de Cloudflare Pages : un dépôt Git de fichiers statiques, servi au bord du réseau. Si l'atelier s'arrête, l'enseigne ne s'arrête pas avec.</p>
+      </div>
+      <p>Ce n'est pas une défiance envers le lab. C'est l'inverse. Le lab a assez à faire. On ne lui demande plus d'être aussi la devanture.</p>
+
+      <h2>Pages, Workers : même menu, deux contrats</h2>
+      <p>Sur le tableau de bord Cloudflare, Pages et Workers partagent une entrée. Il faut lire les étiquettes.</p>
+      <p><strong>Pages</strong> prend un dépôt, y lit des fichiers, les sert. HTML, CSS, JavaScript de navigateur. Pas de compilation obligatoire. Un site « qui bouge » côté client a sa place ici. Le preset « None », une commande de build vide ou <code>exit 0</code>, le répertoire de sortie à la racine : c'est le contrat statique.</p>
+      <p><strong>Workers</strong>, avec Wrangler, c'est l'exécution. Du JavaScript qui tourne chez Cloudflare, pas seulement dans le navigateur. Utile le jour où l'on a vraiment quelque chose à calculer au bord. Ce n'est pas le bon écran pour déposer un dossier de pages. Si le formulaire propose <code>npx wrangler deploy</code> et un jeton d'API, on n'est plus en train de publier une vitrine statique. On revient, on prend l'onglet Pages.</p>
+      <p>Les deux produits se respectent. On ne les oppose pas. On les choisit.</p>
+
+      <h2>Le geste, dans l'ordre</h2>
+      <ol>
+        <li>Un dépôt Git dont la branche principale contient les fichiers du site.</li>
+        <li>Cloudflare → Workers & Pages → Create application → onglet <strong>Pages</strong> → import du dépôt.</li>
+        <li>Framework None. Build : vide ou <code>exit 0</code>. Output : <code>/</code>.</li>
+        <li>Déploiement. Une adresse technique apparaît : <code>projet.pages.dev</code>. C'est le chantier. On vérifie qu'elle sert bien les fichiers.</li>
+        <li>Custom domain : d'abord le <code>www</code>. On prouve que <code>www</code> répond comme le chantier. Ensuite seulement le domaine nu (l'apex).</li>
+        <li>Les enregistrements mail (MX) ne se touchent pas. Un nom de domaine porte à la fois un site et une messagerie. Ce n'est pas le même sujet.</li>
+        <li>Quand l'enseigne répond depuis Pages, on retire ces noms du tunnel. L'atelier garde les siens.</li>
+      </ol>
+      <p>Un <code>git push</code> sur la branche principale republie. Pas de bouton à cliquer à chaque virgule. C'est le minimum d'hygiène pour une vitrine qu'on veut pouvoir corriger sans rallumer une tour.</p>
+
+      <h2>Ce que « custom domain » veut dire</h2>
+      <p><code>pages.dev</code> est l'adresse que Cloudflare donne au projet. Personne n'a à la retenir. Le custom domain accroche <em>notre</em> nom à ce projet. Le navigateur affiche <code>www…</code> ou le domaine nu. Ce n'est pas une redirection « allez voir pages.dev ». C'est le même contenu, sous le nom qu'on a choisi.</p>
+      <p>On ne bascule pas <code>www</code> et l'apex dans le même geste. Un nom, on prouve, l'autre ensuite. La prudence n'est pas du folklore : le domaine nu porte aussi le courrier.</p>
+
+      <h2>Ce que cette note n'est pas</h2>
+      <p>Ce n'est pas le journal du lab. Les adresses internes, les incidents nommés, les recettes de durcissement restent hors de cette page. Ce n'est pas une offre commerciale. Ce n'est pas une invitation à juger l'accueil comme s'il était clos.</p>
+      <p>C'est le récit d'un passage : d'un serveur de fichiers validé en local à une enseigne qui n'a plus besoin de cette machine pour exister. Le lab continue. Il a juste cessé d'être la seule porte.</p>
+
+      <p><a class="btn" href="../index.html">Retour à l'accueil</a></p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="links">
+      <a href="../index.html">Accueil</a>
+      <a href="../apropos.html">À propos</a>
+      <a href="../prestations.html">Prestations</a>
+      <a href="origine-statique-et-lab.html">Notes</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
+  </footer>
+  <script src="../assets/particles.js"></script>
+</body>
+</html>
