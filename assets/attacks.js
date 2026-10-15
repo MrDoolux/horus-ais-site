@@ -40,11 +40,11 @@
       pkt.style.top = cy + "px";
     });
 
-    // Vitesse de vol entre 1 et 2 secondes
-    var flightMs = 1000 + Math.random() * 1000;
+    // Vitesse de vol entre 6 et 8 secondes (lisible)
+    var flightMs = 6000 + Math.random() * 2000;
 
     setTimeout(function () {
-      // Le badge disparaît d'un coup — plus d'animation d'implosion
+      // Explosion : le badge disparaît d'un coup, les lettres jaillissent
       pkt.style.transition = "none";
       pkt.style.opacity = "0";
       pkt.style.transform = "translate(-50%, -50%) scale(0)";
@@ -57,7 +57,7 @@
       layer.appendChild(flash);
       setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
 
-      // Explosion en lettres individuelles : chaque caractère devient un fragment
+      // Explosion en lettres individuelles
       var text = pkt.textContent;
       var chars = text.split("");
       for (var f = 0; f < chars.length; f++) {
@@ -89,29 +89,28 @@
         setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1100, p);
       }
 
-      // Renvoi explicite : le paquet rebondit loin, dans une direction nettement écartée de l'axe d'arrivée
+      // Renvoi explicite : le badge rebondit loin du wrap, direction écartée de l'axe d'arrivée
       var dx = cx - x;
       var dy = cy - y;
       var len = Math.sqrt(dx * dx + dy * dy) || 1;
       var nx = dx / len;
       var ny = dy / len;
-      // Perpendiculaire pour écarter la trajectoire de rebond
       var px = -ny;
       var py = nx;
       var sideSign = Math.random() < 0.5 ? 1 : -1;
-      var bx = cx + nx * 480 + px * sideSign * 220;
-      var by = cy + ny * 480 + py * sideSign * 220;
-      pkt.style.transition = "left 1.2s cubic-bezier(0.15, 0.85, 0.35, 1), top 1.2s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.2s ease";
+      var bx = cx + nx * 520 + px * sideSign * 260;
+      var by = cy + ny * 520 + py * sideSign * 260;
+      pkt.style.transition = "left 1.6s cubic-bezier(0.15, 0.85, 0.35, 1), top 1.6s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.6s ease";
       pkt.style.left = bx + "px";
       pkt.style.top = by + "px";
       pkt.style.opacity = "0";
 
       setTimeout(function () {
         if (pkt.parentNode) pkt.parentNode.removeChild(pkt);
-      }, 1400);
+      }, 1800);
     }, flightMs);
   }
 
-  setInterval(spawn, 4200);
-  setTimeout(spawn, 1200);
+  setInterval(spawn, 9000);
+  setTimeout(spawn, 2000);
 })();
