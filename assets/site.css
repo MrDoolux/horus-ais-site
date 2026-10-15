@@ -50,7 +50,7 @@ nav.top ul a.current { color: var(--gold); }
 }
 .hero.cosmos {
   background:
-    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.85)),
+    linear-gradient(rgba(5, 5, 5, 0.10), rgba(5, 5, 5, 0.30)),
     url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
