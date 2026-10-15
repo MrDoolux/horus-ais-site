@@ -43,22 +43,43 @@
     setTimeout(function () {
       pkt.classList.remove("flying");
       pkt.classList.add("hit");
-      // Explosion de rejet : particules dorées qui jaillissent du point d'impact
-      for (var i = 0; i < 16; i++) {
+
+      // Flash d'impact sur le bouclier
+      var flash = document.createElement("div");
+      flash.className = "attack-flash";
+      flash.style.left = cx + "px";
+      flash.style.top = cy + "px";
+      layer.appendChild(flash);
+      setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
+
+      // Explosion de rejet : 60 particules dorées qui jaillissent du point d'impact
+      for (var i = 0; i < 60; i++) {
         var p = document.createElement("div");
         p.className = "attack-spark";
         var angle = Math.random() * Math.PI * 2;
-        var dist = 40 + Math.random() * 90;
+        var dist = 50 + Math.random() * 160;
         p.style.left = cx + "px";
         p.style.top = cy + "px";
         p.style.setProperty("--dx", Math.cos(angle) * dist + "px");
         p.style.setProperty("--dy", Math.sin(angle) * dist + "px");
         layer.appendChild(p);
-        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 900, p);
+        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1100, p);
       }
+
+      // Le paquet rebondit : il repart dans la direction opposée à son arrivée
+      var dx = cx - x;
+      var dy = cy - y;
+      var len = Math.sqrt(dx * dx + dy * dy) || 1;
+      var bx = cx + (dx / len) * 220;
+      var by = cy + (dy / len) * 220;
+      pkt.style.transition = "left 0.9s cubic-bezier(0.2, 0.8, 0.4, 1), top 0.9s cubic-bezier(0.2, 0.8, 0.4, 1), opacity 0.9s ease";
+      pkt.style.left = bx + "px";
+      pkt.style.top = by + "px";
+      pkt.style.opacity = "0";
+
       setTimeout(function () {
         if (pkt.parentNode) pkt.parentNode.removeChild(pkt);
-      }, 900);
+      }, 1100);
     }, 3200);
   }
 

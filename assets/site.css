@@ -439,6 +439,26 @@ body.page-accueil footer .copy {
     transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0);
   }
 }
+.attack-flash {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.7) 0%, rgba(212, 175, 55, 0) 70%);
+  transform: translate(-50%, -50%);
+  animation: flash-pulse 0.7s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes flash-pulse {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+}
 @media (max-width: 640px) {
   .attack-packet { font-size: 0.58rem; padding: 0.25rem 0.5rem; }
 }
