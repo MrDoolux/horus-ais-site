@@ -80,6 +80,11 @@ nav.top ul a.current { color: var(--gold); }
 .hero .logo-wrap img {
   width: 100%; height: auto; border-radius: 4px;
 }
+.hero .logo-wrap video {
+  width: 100%; height: auto; border-radius: 4px;
+  display: block;
+  object-fit: cover;
+}
 #dust-canvas {
   position: fixed;
   inset: 0;
