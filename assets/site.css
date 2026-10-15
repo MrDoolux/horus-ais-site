@@ -47,11 +47,36 @@ nav.top ul a.current { color: var(--gold); }
   align-items: center; justify-content: center;
   text-align: center;
   padding: 6rem 1.5rem 4rem;
+  overflow: hidden;
 }
 .hero.cosmos {
+  background: var(--bg);
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.85)),
-    url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+    linear-gradient(rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.75)),
+    radial-gradient(ellipse at center, transparent 30%, rgba(5, 5, 5, 0.6) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
 }
 .hero.presentatio {
   min-height: 70vh;
@@ -158,6 +183,7 @@ nav.top ul a.current { color: var(--gold); }
 .scroll-hint {
   position: absolute; bottom: 1.5rem;
   color: #5a5348; font-size: 0.7rem; letter-spacing: 0.2em;
+  z-index: 20;
 }
 
 section { padding: 5rem 1.5rem; }
@@ -252,8 +278,7 @@ footer .links {
   flex-wrap: wrap; margin-bottom: 1rem;
 }
 footer .links a {
-  color: #5a5348; font-size: 0.75rem;
-  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #5a5348; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
 }
 footer .links a:hover { color: var(--gold); }
 footer .copy { color: #3a3530; font-size: 0.7rem; }
