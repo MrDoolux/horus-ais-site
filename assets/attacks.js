@@ -44,8 +44,10 @@
     var flightMs = 1500 + Math.random() * 1000;
 
     setTimeout(function () {
-      pkt.classList.remove("flying");
-      pkt.classList.add("hit");
+      // Le badge disparaît d'un coup — plus d'animation d'implosion
+      pkt.style.transition = "none";
+      pkt.style.opacity = "0";
+      pkt.style.transform = "translate(-50%, -50%) scale(0)";
 
       // Flash d'impact sur le bouclier
       var flash = document.createElement("div");
