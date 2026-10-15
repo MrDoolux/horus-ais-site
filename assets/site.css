@@ -458,6 +458,30 @@ body.page-accueil footer .copy {
     transform: translate(-50%, -50%) scale(2.5);
   }
 }
+/* Fragments du badge déchiré — explosion en morceaux, pas une implosion */
+.attack-fragment {
+  position: absolute;
+  color: var(--gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  animation: fragment-fly 1.1s ease-out forwards;
+}
+@keyframes fragment-fly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.3) rotate(var(--rot));
+  }
+}
 @media (max-width: 640px) {
   .attack-packet { font-size: 0.58rem; padding: 0.25rem 0.5rem; }
+  .attack-fragment { font-size: 0.58rem; }
 }
