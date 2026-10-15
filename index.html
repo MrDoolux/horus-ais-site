@@ -28,20 +28,18 @@
   <!-- Canvas plein écran pour que les particules s'évadent partout -->
   <canvas id="dust-canvas"></canvas>
 
-  <!-- Hero : vidéo hero.mp4 à la place de l'image face_web.jpg, structure identique à la version précédente -->
+  <!-- Hero : vidéo hero.mp4 à la place de l'image face_web.jpg, même taille que l'image précédente -->
   <header class="hero cosmos" id="accueil">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto">
-      <source src="assets/hero.mp4" type="video/mp4" />
-    </video>
     <a href="apropos.html" class="logo-wrap" id="logo-wrap">
-      <img src="assets/face_web.jpg" alt="Horus AIS" id="logo-img" />
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
     </a>
     <h1>Souveraineté. Contrôle. Confiance.</h1>
     <p class="tagline">Infrastructure de défense personnelle. Lab cybersécurité documenté. Votre IA privée, sous votre contrôle exclusif.</p>
     <div class="actions">
       <a class="btn primary" href="apropos.html">Découvrir</a>
       <a class="btn" href="contact.html">Me contacter</a>
-      <a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </header>
 
@@ -49,7 +47,7 @@
     <div class="links">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
-      <a href="prestations.html">Prestations</a>
+      <li><a href="prestations.html">Prestations</a></li>
       <a href="articles/origine-statique-et-lab.html">Notes</a>
       <a href="contact.html">Contact</a>
       <a href="liens.html">Liens</a>
