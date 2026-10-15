@@ -44,7 +44,24 @@
     var flightMs = 6000 + Math.random() * 2000;
 
     setTimeout(function () {
-      // 1) Explosion : le badge se brise en morceaux au point d'impact
+      // 1) REBOND : le badge repart loin du wrap, direction ecartée de l'axe d'arrivee
+      var dx = cx - x;
+      var dy = cy - y;
+      var len = Math.sqrt(dx * dx + dy * dy) || 1;
+      var nx = dx / len;
+      var ny = dy / len;
+      var px = -ny;
+      var py = nx;
+      var sideSign = Math.random() < 0.5 ? 1 : -1;
+      // Rebond a 900px du centre + ecart perpendiculaire 400px -> hors du wrap, hors de l'ecran
+      var bx = cx + nx * 900 + px * sideSign * 400;
+      var by = cy + ny * 900 + py * sideSign * 400;
+      pkt.style.transition = "left 1.8s cubic-bezier(0.15, 0.85, 0.35, 1), top 1.8s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.8s ease";
+      pkt.style.left = bx + "px";
+      pkt.style.top = by + "px";
+      pkt.style.opacity = "1";
+
+      // 2) Explosion en morceaux PENDANT le rebond, au point d'impact
       var text = pkt.textContent;
       var chars = text.split("");
       for (var f = 0; f < chars.length; f++) {
@@ -54,15 +71,15 @@
         frag.style.left = cx + "px";
         frag.style.top = cy + "px";
         var angle = (Math.PI * 2 * f) / chars.length + (Math.random() - 0.5) * 0.8;
-        var dist = 120 + Math.random() * 220;
+        var dist = 140 + Math.random() * 260;
         frag.style.setProperty("--dx", Math.cos(angle) * dist + "px");
         frag.style.setProperty("--dy", Math.sin(angle) * dist + "px");
         frag.style.setProperty("--rot", (Math.random() - 0.5) * 900 + "deg");
         layer.appendChild(frag);
-        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1400, frag);
+        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1600, frag);
       }
 
-      // 2) Flash d'impact sur le bouclier
+      // 3) Flash d'impact sur le bouclier
       var flash = document.createElement("div");
       flash.className = "attack-flash";
       flash.style.left = cx + "px";
@@ -70,12 +87,12 @@
       layer.appendChild(flash);
       setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
 
-      // 3) Etincelles dorees autour de l'impact
-      for (var i = 0; i < 50; i++) {
+      // 4) Etincelles dorees autour de l'impact
+      for (var i = 0; i < 60; i++) {
         var p = document.createElement("div");
         p.className = "attack-spark";
         var angle = Math.random() * Math.PI * 2;
-        var dist = 50 + Math.random() * 180;
+        var dist = 60 + Math.random() * 200;
         p.style.left = cx + "px";
         p.style.top = cy + "px";
         p.style.setProperty("--dx", Math.cos(angle) * dist + "px");
@@ -84,25 +101,10 @@
         setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1100, p);
       }
 
-      // 4) REBOND : le badge lui-meme repart loin du wrap, direction ecartée de l'axe d'arrivee
-      var dx = cx - x;
-      var dy = cy - y;
-      var len = Math.sqrt(dx * dx + dy * dy) || 1;
-      var nx = dx / len;
-      var ny = dy / len;
-      var px = -ny;
-      var py = nx;
-      var sideSign = Math.random() < 0.5 ? 1 : -1;
-      var bx = cx + nx * 520 + px * sideSign * 260;
-      var by = cy + ny * 520 + py * sideSign * 260;
-      pkt.style.transition = "left 1.6s cubic-bezier(0.15, 0.85, 0.35, 1), top 1.6s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.6s ease";
-      pkt.style.left = bx + "px";
-      pkt.style.top = by + "px";
-      pkt.style.opacity = "0";
-
+      // 5) Le badge disparait une fois sorti de l'ecran
       setTimeout(function () {
         if (pkt.parentNode) pkt.parentNode.removeChild(pkt);
-      }, 1800);
+      }, 2000);
     }, flightMs);
   }
 

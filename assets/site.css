@@ -398,10 +398,10 @@ body.page-accueil footer .copy {
   transition: left 7s linear, top 7s linear, opacity 0.4s ease;
   opacity: 1;
 }
-/* Au contact : le badge se brise en morceaux (plus d'implosion) */
+/* Au contact : le badge rebondit (plus d'implosion) — opacity et scale restent normaux */
 .attack-packet.hit {
-  opacity: 0 !important;
-  transform: translate(-50%, -50%) scale(0) !important;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
   transition: none !important;
 }
 .attack-spark {
@@ -454,7 +454,7 @@ body.page-accueil footer .copy {
   text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
   white-space: nowrap;
   transform: translate(-50%, -50%);
-  animation: fragment-fly 1.4s ease-out forwards;
+  animation: fragment-fly 1.6s ease-out forwards;
 }
 @keyframes fragment-fly {
   0% {
