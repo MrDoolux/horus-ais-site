@@ -206,6 +206,19 @@ section { padding: 5rem 1.5rem; }
 .card .price { color: var(--text); font-size: 0.82rem; margin-top: 0.8rem; }
 .card .price span { color: var(--gold); }
 
+/* Prestations : parallax — une seule image, le texte défile par-dessus */
+body.page-prestations {
+  background: #050505 url("fond_presentatio_1920x1080.jpg") center top / cover no-repeat fixed;
+}
+body.page-prestations .particuliers,
+body.page-prestations .pros {
+  background: transparent;
+}
+body.page-prestations .tarifs,
+body.page-prestations .cta {
+  background: rgba(5, 5, 5, 0.88);
+}
+
 .particuliers, .prestations {
   background:
     linear-gradient(rgba(5, 5, 5, 0.75), rgba(5, 5, 5, 0.92)),
