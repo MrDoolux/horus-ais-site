@@ -52,23 +52,23 @@
       layer.appendChild(flash);
       setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
 
-      // Explosion en morceaux : le badge se déchire en fragments qui partent dans toutes les directions
+      // Explosion en morceaux : le badge se coupe en 4 fragments de texte qui partent dans toutes les directions
       var text = pkt.textContent;
-      var chars = text.split("");
-      var fragCount = Math.min(chars.length, 10);
+      var words = text.split(" ");
+      var fragCount = Math.min(words.length, 4);
       for (var f = 0; f < fragCount; f++) {
         var frag = document.createElement("div");
         frag.className = "attack-fragment";
-        frag.textContent = chars[f];
+        frag.textContent = words[f];
         frag.style.left = cx + "px";
         frag.style.top = cy + "px";
         var angle = (Math.PI * 2 * f) / fragCount + (Math.random() - 0.5) * 0.8;
-        var dist = 100 + Math.random() * 180;
+        var dist = 120 + Math.random() * 200;
         frag.style.setProperty("--dx", Math.cos(angle) * dist + "px");
         frag.style.setProperty("--dy", Math.sin(angle) * dist + "px");
         frag.style.setProperty("--rot", (Math.random() - 0.5) * 900 + "deg");
         layer.appendChild(frag);
-        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1300, frag);
+        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1400, frag);
       }
 
       // Étincelles dorées autour de l'impact
