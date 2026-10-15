@@ -394,7 +394,7 @@ body.page-accueil footer .copy {
   transform: translate(-50%, -50%);
 }
 .attack-packet.flying {
-  transition: left 3.2s linear, top 3.2s linear, opacity 0.4s ease;
+  transition: left 2s linear, top 2s linear, opacity 0.4s ease;
   opacity: 1;
 }
 /* Explosion en morceaux : le badge éclate, il n'implose plus */

@@ -40,6 +40,9 @@
       pkt.style.top = cy + "px";
     });
 
+    // Vitesse de vol entre 1.5 et 2.5 secondes
+    var flightMs = 1500 + Math.random() * 1000;
+
     setTimeout(function () {
       pkt.classList.remove("flying");
       pkt.classList.add("hit");
@@ -52,18 +55,17 @@
       layer.appendChild(flash);
       setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
 
-      // Explosion en morceaux : le badge se coupe en 4 fragments de texte qui partent dans toutes les directions
+      // Explosion en lettres individuelles : chaque caractère devient un fragment
       var text = pkt.textContent;
-      var words = text.split(" ");
-      var fragCount = Math.min(words.length, 4);
-      for (var f = 0; f < fragCount; f++) {
+      var chars = text.split("");
+      for (var f = 0; f < chars.length; f++) {
         var frag = document.createElement("div");
         frag.className = "attack-fragment";
-        frag.textContent = words[f];
+        frag.textContent = chars[f];
         frag.style.left = cx + "px";
         frag.style.top = cy + "px";
-        var angle = (Math.PI * 2 * f) / fragCount + (Math.random() - 0.5) * 0.8;
-        var dist = 120 + Math.random() * 200;
+        var angle = (Math.PI * 2 * f) / chars.length + (Math.random() - 0.5) * 0.8;
+        var dist = 120 + Math.random() * 220;
         frag.style.setProperty("--dx", Math.cos(angle) * dist + "px");
         frag.style.setProperty("--dy", Math.sin(angle) * dist + "px");
         frag.style.setProperty("--rot", (Math.random() - 0.5) * 900 + "deg");
@@ -105,7 +107,7 @@
       setTimeout(function () {
         if (pkt.parentNode) pkt.parentNode.removeChild(pkt);
       }, 1400);
-    }, 3200);
+    }, flightMs);
   }
 
   setInterval(spawn, 4200);
