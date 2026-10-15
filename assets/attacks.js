@@ -15,12 +15,13 @@
     var cx = wr.left + wr.width / 2;
     var cy = wr.top + wr.height / 2;
 
+    // Naissance aux bords de l'écran, loin du wrap
     var side = Math.floor(Math.random() * 4);
     var x, y;
-    if (side === 0) { x = Math.random() * vw; y = -60; }
-    else if (side === 1) { x = vw + 60; y = Math.random() * vh; }
-    else if (side === 2) { x = Math.random() * vw; y = vh + 60; }
-    else { x = -60; y = Math.random() * vh; }
+    if (side === 0) { x = Math.random() * vw; y = -80; }
+    else if (side === 1) { x = vw + 80; y = Math.random() * vh; }
+    else if (side === 2) { x = Math.random() * vw; y = vh + 80; }
+    else { x = -80; y = Math.random() * vh; }
 
     var pkt = document.createElement("div");
     pkt.className = "attack-packet";
@@ -43,11 +44,11 @@
       pkt.classList.remove("flying");
       pkt.classList.add("hit");
       // Explosion de rejet : particules dorées qui jaillissent du point d'impact
-      for (var i = 0; i < 14; i++) {
+      for (var i = 0; i < 16; i++) {
         var p = document.createElement("div");
         p.className = "attack-spark";
         var angle = Math.random() * Math.PI * 2;
-        var dist = 30 + Math.random() * 70;
+        var dist = 40 + Math.random() * 90;
         p.style.left = cx + "px";
         p.style.top = cy + "px";
         p.style.setProperty("--dx", Math.cos(angle) * dist + "px");
