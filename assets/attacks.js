@@ -52,31 +52,31 @@
       layer.appendChild(flash);
       setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
 
-      // Explosion en morceaux : le badge se déchire en 8 fragments qui partent dans toutes les directions
+      // Explosion en morceaux : le badge se déchire en fragments qui partent dans toutes les directions
       var text = pkt.textContent;
       var chars = text.split("");
-      var fragCount = Math.min(chars.length, 8);
+      var fragCount = Math.min(chars.length, 10);
       for (var f = 0; f < fragCount; f++) {
         var frag = document.createElement("div");
         frag.className = "attack-fragment";
         frag.textContent = chars[f];
         frag.style.left = cx + "px";
         frag.style.top = cy + "px";
-        var angle = (Math.PI * 2 * f) / fragCount + (Math.random() - 0.5) * 0.6;
-        var dist = 80 + Math.random() * 140;
+        var angle = (Math.PI * 2 * f) / fragCount + (Math.random() - 0.5) * 0.8;
+        var dist = 100 + Math.random() * 180;
         frag.style.setProperty("--dx", Math.cos(angle) * dist + "px");
         frag.style.setProperty("--dy", Math.sin(angle) * dist + "px");
-        frag.style.setProperty("--rot", (Math.random() - 0.5) * 720 + "deg");
+        frag.style.setProperty("--rot", (Math.random() - 0.5) * 900 + "deg");
         layer.appendChild(frag);
-        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1200, frag);
+        setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1300, frag);
       }
 
       // Étincelles dorées autour de l'impact
-      for (var i = 0; i < 40; i++) {
+      for (var i = 0; i < 50; i++) {
         var p = document.createElement("div");
         p.className = "attack-spark";
         var angle = Math.random() * Math.PI * 2;
-        var dist = 40 + Math.random() * 150;
+        var dist = 50 + Math.random() * 180;
         p.style.left = cx + "px";
         p.style.top = cy + "px";
         p.style.setProperty("--dx", Math.cos(angle) * dist + "px");
@@ -95,16 +95,16 @@
       var px = -ny;
       var py = nx;
       var sideSign = Math.random() < 0.5 ? 1 : -1;
-      var bx = cx + nx * 420 + px * sideSign * 180;
-      var by = cy + ny * 420 + py * sideSign * 180;
-      pkt.style.transition = "left 1.1s cubic-bezier(0.15, 0.85, 0.35, 1), top 1.1s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.1s ease";
+      var bx = cx + nx * 480 + px * sideSign * 220;
+      var by = cy + ny * 480 + py * sideSign * 220;
+      pkt.style.transition = "left 1.2s cubic-bezier(0.15, 0.85, 0.35, 1), top 1.2s cubic-bezier(0.15, 0.85, 0.35, 1), opacity 1.2s ease";
       pkt.style.left = bx + "px";
       pkt.style.top = by + "px";
       pkt.style.opacity = "0";
 
       setTimeout(function () {
         if (pkt.parentNode) pkt.parentNode.removeChild(pkt);
-      }, 1300);
+      }, 1400);
     }, 3200);
   }
 
