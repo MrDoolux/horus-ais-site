@@ -73,7 +73,7 @@ nav.top ul a.current { color: var(--gold); }
 }
 .hero .logo-wrap {
   position: relative;
-  width: min(680px, 90vw);
+  width: min(900px, 92vw);
   margin-bottom: 1.5rem;
   cursor: pointer;
 }
@@ -372,4 +372,43 @@ body.page-accueil footer .copy {
     padding: 0.7rem 1.1rem;
     font-size: 0.75rem;
   }
+}
+
+/* Paquets d'attaque — troisième couche du hero */
+.attack-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  overflow: hidden;
+}
+.attack-packet {
+  position: absolute;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  background: rgba(5, 5, 5, 0.75);
+  color: var(--gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+.attack-packet.flying {
+  transition: left 3.2s linear, top 3.2s linear, opacity 0.4s ease;
+  opacity: 1;
+}
+.attack-packet.hit {
+  animation: packet-burst 0.7s ease-out forwards;
+}
+@keyframes packet-burst {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  40% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.35); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+}
+@media (max-width: 640px) {
+  .attack-packet { font-size: 0.58rem; padding: 0.25rem 0.5rem; }
 }
