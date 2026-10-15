@@ -49,9 +49,7 @@ nav.top ul a.current { color: var(--gold); }
   padding: 6rem 1.5rem 4rem;
 }
 .hero.cosmos {
-  background:
-    linear-gradient(rgba(5, 5, 5, 0.10), rgba(5, 5, 5, 0.30)),
-    url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+  background: url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
   min-height: 70vh;
