@@ -40,8 +40,8 @@
       pkt.style.top = cy + "px";
     });
 
-    // Vitesse de vol entre 1.5 et 2.5 secondes
-    var flightMs = 1500 + Math.random() * 1000;
+    // Vitesse de vol entre 1 et 2 secondes
+    var flightMs = 1000 + Math.random() * 1000;
 
     setTimeout(function () {
       // Le badge disparaît d'un coup — plus d'animation d'implosion

@@ -395,7 +395,7 @@ body.page-accueil footer .copy {
   transform: translate(-50%, -50%);
 }
 .attack-packet.flying {
-  transition: left 2s linear, top 2s linear, opacity 0.4s ease;
+  transition: left 1.5s linear, top 1.5s linear, opacity 0.4s ease;
   opacity: 1;
 }
 /* Le badge disparaît d'un coup au contact — plus d'animation d'implosion */
