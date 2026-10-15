@@ -68,7 +68,7 @@ nav.top ul a.current { color: var(--gold); }
 .hero.logo-bg {
   min-height: 50vh;
   background:
-    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.88)),
+    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 0.88)),
     url("logo_text_1920x1080.jpg") center / cover no-repeat;
 }
 .hero .logo-wrap {
@@ -260,7 +260,7 @@ footer .links a {
 footer .links a:hover { color: var(--gold); }
 footer .copy { color: #3a3530; font-size: 0.7rem; }
 
-/* Mentions légales uniquement */
+/* Mentions legales uniquement */
 body.mentions .page-body,
 body.mentions .block p {
   font-size: 1.125rem;
@@ -326,7 +326,7 @@ body.page-prestations footer .links a {
 body.page-prestations footer .copy {
   font-size: 0.8rem;
 }
-/* À propos uniquement */
+/* A propos uniquement */
 body.page-apropos .about p,
 body.page-apropos .about li {
   font-size: 1.125rem;
@@ -371,7 +371,7 @@ body.page-accueil footer .copy {
   }
 }
 
-/* Paquets d'attaque — troisième couche du hero */
+/* Paquets d'attaque — troisieme couche du hero */
 .attack-layer {
   position: fixed;
   inset: 0;
@@ -398,7 +398,7 @@ body.page-accueil footer .copy {
   transition: left 7s linear, top 7s linear, opacity 0.4s ease;
   opacity: 1;
 }
-/* Le badge disparaît d'un coup au contact — plus d'animation d'implosion */
+/* Au contact : le badge se brise en morceaux (plus d'implosion) */
 .attack-packet.hit {
   opacity: 0 !important;
   transform: translate(-50%, -50%) scale(0) !important;
@@ -443,7 +443,7 @@ body.page-accueil footer .copy {
     transform: translate(-50%, -50%) scale(2.5);
   }
 }
-/* Fragments du badge déchiré — explosion en morceaux, pas une implosion */
+/* Fragments du badge dechire — explosion en morceaux, pas une implosion */
 .attack-fragment {
   position: absolute;
   color: var(--gold);

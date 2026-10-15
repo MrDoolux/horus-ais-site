@@ -15,7 +15,7 @@
     var cx = wr.left + wr.width / 2;
     var cy = wr.top + wr.height / 2;
 
-    // Naissance aux bords de l'écran, loin du wrap
+    // Naissance aux bords de l'ecran, loin du wrap
     var side = Math.floor(Math.random() * 4);
     var x, y;
     if (side === 0) { x = Math.random() * vw; y = -80; }
@@ -44,20 +44,7 @@
     var flightMs = 6000 + Math.random() * 2000;
 
     setTimeout(function () {
-      // Explosion : le badge disparaît d'un coup, les lettres jaillissent
-      pkt.style.transition = "none";
-      pkt.style.opacity = "0";
-      pkt.style.transform = "translate(-50%, -50%) scale(0)";
-
-      // Flash d'impact sur le bouclier
-      var flash = document.createElement("div");
-      flash.className = "attack-flash";
-      flash.style.left = cx + "px";
-      flash.style.top = cy + "px";
-      layer.appendChild(flash);
-      setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
-
-      // Explosion en lettres individuelles
+      // 1) Explosion : le badge se brise en morceaux au point d'impact
       var text = pkt.textContent;
       var chars = text.split("");
       for (var f = 0; f < chars.length; f++) {
@@ -75,7 +62,15 @@
         setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1400, frag);
       }
 
-      // Étincelles dorées autour de l'impact
+      // 2) Flash d'impact sur le bouclier
+      var flash = document.createElement("div");
+      flash.className = "attack-flash";
+      flash.style.left = cx + "px";
+      flash.style.top = cy + "px";
+      layer.appendChild(flash);
+      setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
+
+      // 3) Etincelles dorees autour de l'impact
       for (var i = 0; i < 50; i++) {
         var p = document.createElement("div");
         p.className = "attack-spark";
@@ -89,7 +84,7 @@
         setTimeout(function (el) { if (el.parentNode) el.parentNode.removeChild(el); }, 1100, p);
       }
 
-      // Renvoi explicite : le badge rebondit loin du wrap, direction écartée de l'axe d'arrivée
+      // 4) REBOND : le badge lui-meme repart loin du wrap, direction ecartée de l'axe d'arrivee
       var dx = cx - x;
       var dy = cy - y;
       var len = Math.sqrt(dx * dx + dy * dy) || 1;
