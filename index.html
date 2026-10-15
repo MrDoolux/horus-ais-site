@@ -28,20 +28,21 @@
   <!-- Canvas plein écran pour que les particules s'évadent partout -->
   <canvas id="dust-canvas"></canvas>
 
-  <!-- Porte : plaque or + cosmos + lettres (particles.js). -->
+  <!-- Hero : vidéo plein écran en fond (bouclier flottant, ondulation, sable) -->
   <header class="hero cosmos" id="accueil">
-    <a href="apropos.html" class="logo-wrap" id="logo-wrap">
-    <img src="assets/face_web.jpg" alt="Horus AIS" id="logo-img" />
-      </a>
-    <h1>Souveraineté. Contrôle. Confiance.</h1>
-    <p class="tagline">Infrastructure de défense personnelle. Lab cybersécurité documenté. Votre IA privée, sous votre contrôle exclusif.</p>
-    <div class="actions">
-      <a class="btn primary" href="apropos.html">Découvrir</a>
-      <a class="btn" href="contact.html">Me contacter</a>
-      <a class="btn" href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="tagline">Infrastructure de défense personnelle. Lab cybersécurité documenté. Votre IA privée, sous votre contrôle exclusif.</p>
+      <div class="actions">
+        <a class="btn primary" href="apropos.html">Découvrir maintenant</a>
+        <a class="btn" href="contact.html">Me contacter</a>
+      </div>
     </div>
+    <span class="scroll-hint">DÉFILER</span>
   </header>
-
 
   <footer>
     <div class="links">
@@ -52,6 +53,7 @@
       <a href="contact.html">Contact</a>
       <a href="liens.html">Liens</a>
       <a href="mentions-legales.html">Mentions légales</a>
+      <a href="https://www.linkedin.com/in/ludovic-suy-denis-a93569210/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
   </footer>
