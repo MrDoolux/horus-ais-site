@@ -12,10 +12,10 @@
 
     var side = Math.floor(Math.random() * 4);
     var x, y;
-    if (side === 0) { x = Math.random() * r.width; y = -40; }
-    else if (side === 1) { x = r.width + 40; y = Math.random() * r.height; }
-    else if (side === 2) { x = Math.random() * r.width; y = r.height + 40; }
-    else { x = -40; y = Math.random() * r.height; }
+    if (side === 0) { x = Math.random() * r.width; y = -50; }
+    else if (side === 1) { x = r.width + 50; y = Math.random() * r.height; }
+    else if (side === 2) { x = Math.random() * r.width; y = r.height + 50; }
+    else { x = -50; y = Math.random() * r.height; }
 
     var pkt = document.createElement("div");
     pkt.className = "attack-packet";
@@ -24,6 +24,9 @@
     pkt.style.left = x + "px";
     pkt.style.top = y + "px";
     layer.appendChild(pkt);
+
+    // Force le reflow pour que la transition s'applique
+    pkt.offsetWidth;
 
     requestAnimationFrame(function () {
       pkt.classList.add("flying");
