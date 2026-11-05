@@ -86,13 +86,13 @@ body.contact footer {
   font-weight: 600;
   color: #e8e0d0;
   max-width: 680px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 .hero.contact-bg .contact-details {
   margin-top: 1.2rem;
   color: var(--text);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   line-height: 1.8;
   text-shadow: 0 1px 4px rgba(0,0,0,0.7);
 }
