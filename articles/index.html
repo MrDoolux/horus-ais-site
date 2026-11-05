@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes — Horus AIS</title>
+  <meta name="description" content="Notes techniques et récits d’architecture du lab Horus AIS." />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    body.page-article { background: #050505; }
+    .article {
+      padding: 7.5rem 1.5rem 4rem;
+      position: relative;
+      z-index: 10;
+    }
+    .article .wrap { max-width: 720px; }
+    .article h1 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: clamp(1.15rem, 3vw, 1.7rem);
+      margin-bottom: 1.5rem;
+    }
+    .notes-list { list-style: none; padding: 0; }
+    .notes-list li {
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      padding-bottom: 1.2rem;
+    }
+    .notes-list a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 1.15rem;
+    }
+    .notes-list a:hover { text-decoration: underline; }
+    .notes-list .date {
+      color: #6a6358;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-top: 0.3rem;
+    }
+  </style>
+</head>
+<body class="page-article">
+  <canvas id="dust-canvas"></canvas>
+  <nav class="top">
+    <a href="../index.html" class="brand">
+      <img src="../assets/faucon_adulte_blue.jpg" alt="Horus AIS" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../apropos.html">À propos</a></li>
+      <li><a href="../prestations.html">Prestations</a></li>
+      <li><a class="current" href="index.html">Notes</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../liens.html">Liens</a></li>
+    </ul>
+  </nav>
+
+  <article class="article">
+    <div class="wrap">
+      <h1>Notes</h1>
+      <ul class="notes-list">
+        <li>
+          <a href="watchdog-hang-silencieux.html">Quand le ping répond mais que SSH ne répond plus</a>
+          <span class="date">Novembre 2026</span>
+        </li>
+        <li>
+          <a href="origine-statique-et-lab.html">Deux origines pour un nom de domaine</a>
+          <span class="date">Septembre 2026</span>
+        </li>
+      </ul>
+      <p style="margin-top: 2rem;"><a class="btn" href="../index.html">Retour à l'accueil</a></p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="links">
+      <a href="../index.html">Accueil</a>
+      <a href="../apropos.html">À propos</a>
+      <a href="../prestations.html">Prestations</a>
+      <a href="index.html">Notes</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · homelab documenté · Ludovic Suy</p>
+  </footer>
+  <script src="../assets/particles.js"></script>
+</body>
+</html>

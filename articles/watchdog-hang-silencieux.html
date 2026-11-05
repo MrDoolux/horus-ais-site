@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quand le ping répond mais que SSH ne répond plus — Horus AIS</title>
+  <meta name="description" content="Incident réel : machines qui pingent mais dont le SSH timeout. Mise en place d'un watchdog matériel pour forcer un reboot automatique." />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    body.page-article { background: #050505; }
+    .article {
+      padding: 7.5rem 1.5rem 4rem;
+      position: relative;
+      z-index: 10;
+    }
+    .article .wrap { max-width: 720px; }
+    .article .kicker {
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+    .article h1 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: clamp(1.15rem, 3vw, 1.7rem);
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+    }
+    .article .lede {
+      color: var(--text);
+      font-size: 1.12rem;
+      margin-bottom: 2.2rem;
+    }
+    .article h2 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      margin: 2.4rem 0 0.9rem;
+    }
+    .article p, .article li {
+      color: #cfc6b6;
+      font-size: 1.05rem;
+      margin-bottom: 0.95rem;
+    }
+    .article ul, .article ol { padding-left: 1.2rem; margin-bottom: 1.2rem; }
+    .article li { margin-bottom: 0.45rem; }
+    .article .box {
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      background: rgba(10, 10, 10, 0.55);
+      padding: 1.2rem 1.3rem;
+      margin: 1.4rem 0 1.8rem;
+    }
+    .article .box p:last-child { margin-bottom: 0; }
+    .article .meta { color: #6a6358; font-size: 0.82rem; letter-spacing: 0.06em; margin-bottom: 2rem; }
+  </style>
+</head>
+<body class="page-article">
+  <canvas id="dust-canvas"></canvas>
+  <nav class="top">
+    <a href="../index.html" class="brand">
+      <img src="../assets/faucon_adulte_blue.jpg" alt="Horus AIS" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../apropos.html">À propos</a></li>
+      <li><a href="../prestations.html">Prestations</a></li>
+      <li><a class="current" href="index.html">Notes</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../liens.html">Liens</a></li>
+    </ul>
+  </nav>
+
+  <article class="article">
+    <div class="wrap">
+      <p class="kicker">Note · novembre 2026</p>
+      <h1>Quand le ping répond mais que SSH ne répond plus</h1>
+      <p class="meta">Ludovic Suy — administrateur d’infrastructures sécurisées · homelab documenté</p>
+      <p class="lede">Depuis Paris, deux machines de mon lab répondaient au ping mais refusaient toute connexion SSH. Sans prise programmable pour couper l’alimentation à distance, il a fallu se déplacer. Voici ce que j’ai mis en place ensuite.</p>
+
+      <h2>Le problème</h2>
+      <p>Le tunnel WireGuard était sain. Le ping vers les machines passait. Pourtant, le port 22 timeout. Impossible de se connecter pour diagnostiquer ou redémarrer. Les sites servis par l’une des machines continuaient de répondre, preuve que tout n’était pas éteint. Seulement, le système ne répondait plus aux connexions SSH.</p>
+      <p>Ce type de hang silencieux est courant sur des machines headless. La machine est vivante au niveau réseau, mais le userspace est gelé. Sans écran ni prise programmable (PDU), la seule solution immédiate est de se déplacer pour redémarrer physiquement.</p>
+
+      <h2>La solution : le watchdog matériel</h2>
+      <p>Après les reboots sur place, j’ai activé un <strong>watchdog matériel</strong> sur les deux machines.</p>
+      <p>Le principe est simple. Le hardware contient un compte à rebours. Un petit programme (le daemon watchdog) doit régulièrement lui écrire pour le remettre à zéro. On appelle ça « caresser le timer ». Si le système hang et que le programme ne peut plus le faire, le compte à rebours arrive à zéro et le matériel force un hard reboot. La machine revient toute seule.</p>
+
+      <div class="box">
+        <p>Sur une machine Intel, c’est le module <code>iTCO_wdt</code>. Sur la GX10 (ARM), c’est le <code>SBSA Generic Watchdog</code>. Dans les deux cas, le timeout est réglé à 60 secondes. Le daemon écrit toutes les 10 secondes. Si personne n’écrit plus, le matériel reboot.</p>
+      </div>
+
+      <h2>Pourquoi ce n’est pas un gadget</h2>
+      <p>C’est une pratique standard en production pour les machines distantes ou headless. Les administrateurs l’utilisent depuis longtemps sur les serveurs, les appliances, les routeurs. Ce n’est pas une solution de confort : c’est un filet de sécurité contre les hangs silencieux qui obligent à se déplacer.</p>
+      <p>Une PDU (prise programmable) reste utile pour les cas extrêmes où même le watchdog ne suffit pas. Mais le watchdog couvre déjà la majorité des situations où le système est gelé sans être totalement mort.</p>
+
+      <h2>Ce que ça change concrètement</h2>
+      <p>Aujourd’hui, si l’une de ces machines entre dans le même état, elle se redémarrera toute seule au bout d’une minute. Je pourrai me reconnecter depuis Paris sans avoir à me déplacer. Le déverrouillage LUKS distant reste disponible sur la machine qui en a besoin.</p>
+      <p>Ce n’est pas la solution à tous les problèmes. C’est simplement celle qui évite de revivre exactement le même incident.</p>
+
+      <p><a class="btn" href="index.html">Retour aux notes</a></p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="links">
+      <a href="../index.html">Accueil</a>
+      <a href="../apropos.html">À propos</a>
+      <a href="../prestations.html">Prestations</a>
+      <a href="index.html">Notes</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · homelab documenté · Ludovic Suy</p>
+  </footer>
+  <script src="../assets/particles.js"></script>
+</body>
+</html>
