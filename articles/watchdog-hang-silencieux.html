@@ -7,7 +7,17 @@
   <meta name="description" content="Incident réel : machines qui pingent mais dont le SSH timeout. Mise en place d'un watchdog matériel pour forcer un reboot automatique." />
   <link rel="stylesheet" href="../assets/site.css" />
   <style>
-    body.page-article { background: #050505; }
+    body.page-article {
+      background: #050505 url('../assets/watchdog-bg.jpg') center top / cover no-repeat fixed;
+    }
+    body.page-article::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 5, 0.72);
+      z-index: 1;
+      pointer-events: none;
+    }
     .article {
       padding: 7.5rem 1.5rem 4rem;
       position: relative;
