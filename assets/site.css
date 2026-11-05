@@ -40,10 +40,19 @@ nav.top ul a:hover,
 nav.top ul a.current { color: var(--gold); }
 @media (max-width: 640px) { nav.top ul { display: none; } }
 
-/* Contact : nav statique pour ne pas couper l'image */
+/* Contact : nav statique + body flex pour remplir l'écran */
+body.contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 body.contact nav.top {
   position: relative;
   background: #050505;
+  flex-shrink: 0;
+}
+body.contact footer {
+  flex-shrink: 0;
 }
 
 .hero {
@@ -64,22 +73,31 @@ body.contact nav.top {
     url("fond_presentatio_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.contact-bg {
-  min-height: 70vh;
-  padding: 3.5rem 1.5rem 3rem;
+  flex: 1;
+  min-height: 0;
+  padding: 2rem 1.5rem;
   justify-content: center;
   background:
-    linear-gradient(rgba(5, 5, 5, 0.35), rgba(5, 5, 5, 0.55)),
-    url("fond_contact_1920x1080.jpg") center 25% / cover no-repeat;
+    linear-gradient(rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 0.5)),
+    url("fond_contact_1920x1080.jpg") center 35% / cover no-repeat;
 }
-.hero.contact-bg .contact-details {
-  margin-top: 1.4rem;
-  color: var(--text);
-  font-size: 1.15rem;
-  line-height: 1.85;
+.hero.contact-bg .tagline {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #e8e0d0;
+  max-width: 680px;
+  margin-bottom: 1.5rem;
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
+.hero.contact-bg .contact-details {
+  margin-top: 1.2rem;
+  color: var(--text);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
 .hero.contact-bg .contact-details p {
-  margin: 0.25rem 0;
+  margin: 0.2rem 0;
 }
 .hero.logo-bg {
   min-height: 50vh;
@@ -114,13 +132,7 @@ body.contact nav.top {
   color: var(--gold); font-weight: 400;
   margin-bottom: 0.8rem;
 }
-.hero .tagline {
-  color: var(--muted);
-  max-width: 520px;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
+.hero .tagline { color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
 .actions { display: flex; flex-direction: column; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .hero .actions {
   position: absolute;
@@ -405,10 +417,8 @@ body.page-accueil footer .copy {
     padding: 0.7rem 1.1rem;
     font-size: 0.75rem;
   }
-  .hero.contact-bg {
-    min-height: 90vh;
-    padding: 2.5rem 1rem 2rem;
-    background-position: center 30%;
+  .hero.contact-bg .tagline {
+    font-size: 1.2rem;
   }
   .hero.contact-bg .contact-details {
     font-size: 1.05rem;
