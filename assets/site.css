@@ -58,10 +58,12 @@ nav.top ul a.current { color: var(--gold); }
     url("fond_presentatio_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.contact-bg {
-  min-height: 70vh;
+  min-height: 45vh;
+  padding: 5rem 1.5rem 2rem;
+  justify-content: center;
   background:
-    linear-gradient(rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.92)),
-    url("fond_contact_1920x1080.jpg") center / cover no-repeat;
+    linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 5, 0.75)),
+    url("fond_contact_1920x1080.jpg") center 30% / cover no-repeat;
 }
 .hero.logo-bg {
   min-height: 50vh;
@@ -304,6 +306,7 @@ body.liens footer .copy {
 /* Contact uniquement */
 body.contact .page-body {
   font-size: 1.125rem;
+  padding: 2rem 1.5rem 3rem;
 }
 body.contact .btn {
   font-size: 1rem;
@@ -379,6 +382,13 @@ body.page-accueil footer .copy {
   .btn {
     padding: 0.7rem 1.1rem;
     font-size: 0.75rem;
+  }
+  .hero.contact-bg {
+    min-height: 40vh;
+    padding: 4.5rem 1rem 1.5rem;
+  }
+  body.contact .page-body {
+    padding: 1.5rem 1rem 2.5rem;
   }
 }
 
