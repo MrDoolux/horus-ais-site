@@ -70,7 +70,7 @@ body.mentions footer {
   flex-shrink: 0;
 }
 
-/* Prestations : nav statique */
+/* Prestations : nav relative */
 body.page-prestations nav.top {
   position: relative;
   background: #050505;
@@ -85,7 +85,7 @@ body.page-prestations nav.top {
   padding: 6rem 1.5rem 4rem;
 }
 .hero.cosmos {
-  background: url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+  background: url("assets/fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
   min-height: 40vh;
@@ -98,7 +98,7 @@ body.page-prestations nav.top {
   justify-content: center;
   background:
     linear-gradient(rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 0.5)),
-    url("fond_contact_1920x1080.jpg") center 35% / cover no-repeat;
+    url("assets/fond_contact_1920x1080.jpg") center 35% / cover no-repeat;
 }
 .hero.contact-bg .tagline {
   font-size: 1.45rem;
@@ -123,7 +123,7 @@ body.page-prestations nav.top {
   min-height: 50vh;
   background:
     linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 0.88)),
-    url("logo_text_1920x1080.jpg") center / cover no-repeat;
+    url("assets/logo_text_1920x1080.jpg") center / cover no-repeat;
 }
 .hero .logo-wrap {
   position: relative;
@@ -232,7 +232,7 @@ section { padding: 5rem 1.5rem; }
   display: flex; align-items: center;
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.55) 55%, rgba(5, 5, 5, 0.25) 100%),
-    url("hero_1920x1080.jpg") right center / cover no-repeat;
+    url("assets/hero_1920x1080.jpg") right center / cover no-repeat;
 }
 .about .wrap { max-width: 560px; }
 .about h1, .about h2 {
@@ -262,9 +262,9 @@ section { padding: 5rem 1.5rem; }
 .card .price { color: var(--text); font-size: 0.82rem; margin-top: 0.8rem; }
 .card .price span { color: var(--gold); }
 
-/* Prestations : parallax — une seule image, le texte défile par-dessus */
+/* Prestations : image de fond fixe (chemin corrigé) */
 body.page-prestations {
-  background: #050505 url("fond_presentatio_1920x1080.jpg") center top / cover no-repeat fixed;
+  background: #050505 url("assets/fond_presentatio_1920x1080.jpg") center top / cover no-repeat fixed;
 }
 body.page-prestations .particuliers,
 body.page-prestations .pros {
@@ -375,7 +375,7 @@ body.mentions .hero.logo-bg {
   justify-content: center;
   background:
     linear-gradient(rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.75)),
-    url("logo_text_1920x1080.jpg") center 55% / cover no-repeat;
+    url("assets/logo_text_1920x1080.jpg") center 55% / cover no-repeat;
 }
 
 /* Prestations uniquement */
