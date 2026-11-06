@@ -89,7 +89,7 @@ body.page-prestations nav.top {
 }
 .hero.presentatio {
   min-height: 40vh;
-  background: #050505;
+  background: transparent;
 }
 .hero.contact-bg {
   flex: 1;
@@ -264,21 +264,21 @@ section { padding: 5rem 1.5rem; }
 
 /* Prestations : parallax — une seule image, le texte défile par-dessus */
 body.page-prestations {
-  background: #050505;
+  background: #050505 url("fond_presentatio_1920x1080.jpg") center top / cover no-repeat fixed;
 }
 body.page-prestations .particuliers,
 body.page-prestations .pros {
   background: transparent;
 }
 body.page-prestations .cta {
-  background: #030303;
+  background: rgba(5, 5, 5, 0.75);
 }
 
 .particuliers, .prestations {
-  background: #050505;
+  background: transparent;
 }
 .pros {
-  background: #050505;
+  background: transparent;
 }
 .tarifs { background: #050505; }
 .table-wrap { overflow-x: auto; border: 1px solid rgba(212, 175, 55, 0.15); }
