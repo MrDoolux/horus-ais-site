@@ -55,6 +55,21 @@ body.contact footer {
   flex-shrink: 0;
 }
 
+/* Mentions : même traitement que contact */
+body.mentions {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body.mentions nav.top {
+  position: relative;
+  background: #050505;
+  flex-shrink: 0;
+}
+body.mentions footer {
+  flex-shrink: 0;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -353,10 +368,15 @@ body.contact footer .copy {
   font-size: 0.8rem;
 }
 
-/* Mentions uniquement */
+/* Mentions uniquement — image décalée plus bas */
 body.mentions .hero.logo-bg {
-  background-position: center 60%;
-  padding-top: 3.5rem;
+  flex: 1;
+  min-height: 0;
+  padding: 3.5rem 1.5rem 2rem;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.75)),
+    url("logo_text_1920x1080.jpg") center 55% / cover no-repeat;
 }
 
 /* Prestations uniquement */
