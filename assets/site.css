@@ -70,25 +70,43 @@ body.mentions footer {
   flex-shrink: 0;
 }
 
-/* Prestations : nav relative + fond cosmos */
+/* Prestations : nav relative + vidéo de fond */
 body.page-prestations {
-  background: #050505 url("fond_cosmos_1920x1080.jpg") center top / cover no-repeat fixed;
+  background: #050505;
+  position: relative;
+}
+body.page-prestations .bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
 }
 body.page-prestations nav.top {
   position: relative;
   background: #050505;
+  z-index: 10;
+}
+body.page-prestations .hero.presentatio,
+body.page-prestations .particuliers,
+body.page-prestations .pros,
+body.page-prestations .cta,
+body.page-prestations footer {
+  position: relative;
+  z-index: 10;
+  background: transparent;
 }
 body.page-prestations .hero.presentatio {
   min-height: 40vh;
-  background: transparent;
   padding: 3.5rem 1.5rem 1.5rem;
 }
-body.page-prestations .particuliers,
-body.page-prestations .pros {
-  background: transparent;
-}
 body.page-prestations .cta {
-  background: rgba(5, 5, 5, 0.75);
+  background: rgba(5, 5, 5, 0.6);
 }
 
 /* À propos : nav relative */
