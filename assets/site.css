@@ -70,10 +70,25 @@ body.mentions footer {
   flex-shrink: 0;
 }
 
-/* Prestations : nav relative */
+/* Prestations : nav relative + fond cosmos */
+body.page-prestations {
+  background: #050505 url("assets/fond_cosmos_1920x1080.jpg") center top / cover no-repeat fixed;
+}
 body.page-prestations nav.top {
   position: relative;
   background: #050505;
+}
+body.page-prestations .hero.presentatio {
+  min-height: 40vh;
+  background: transparent;
+  padding: 3.5rem 1.5rem 1.5rem;
+}
+body.page-prestations .particuliers,
+body.page-prestations .pros {
+  background: transparent;
+}
+body.page-prestations .cta {
+  background: rgba(5, 5, 5, 0.75);
 }
 
 .hero {
@@ -88,7 +103,7 @@ body.page-prestations nav.top {
   background: url("assets/fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
-  min-height: 40vh;
+  min-height: 70vh;
   background: transparent;
 }
 .hero.contact-bg {
@@ -261,18 +276,6 @@ section { padding: 5rem 1.5rem; }
 .card p { color: var(--muted); font-size: 0.88rem; }
 .card .price { color: var(--text); font-size: 0.82rem; margin-top: 0.8rem; }
 .card .price span { color: var(--gold); }
-
-/* Prestations : image de fond fixe (chemin corrigé) */
-body.page-prestations {
-  background: #050505 url("assets/fond_presentatio_1920x1080.jpg") center top / cover no-repeat fixed;
-}
-body.page-prestations .particuliers,
-body.page-prestations .pros {
-  background: transparent;
-}
-body.page-prestations .cta {
-  background: rgba(5, 5, 5, 0.75);
-}
 
 .particuliers, .prestations {
   background: transparent;
