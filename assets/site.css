@@ -91,6 +91,12 @@ body.page-prestations .cta {
   background: rgba(5, 5, 5, 0.75);
 }
 
+/* À propos : nav relative */
+body.page-apropos nav.top {
+  position: relative;
+  background: #050505;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
