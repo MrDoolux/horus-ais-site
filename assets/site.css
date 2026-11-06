@@ -72,7 +72,7 @@ body.mentions footer {
 
 /* Prestations : nav relative + fond cosmos */
 body.page-prestations {
-  background: #050505 url("assets/fond_cosmos_1920x1080.jpg") center top / cover no-repeat fixed;
+  background: #050505 url("fond_cosmos_1920x1080.jpg") center top / cover no-repeat fixed;
 }
 body.page-prestations nav.top {
   position: relative;
@@ -100,7 +100,7 @@ body.page-prestations .cta {
   padding: 6rem 1.5rem 4rem;
 }
 .hero.cosmos {
-  background: url("assets/fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+  background: url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
   min-height: 70vh;
@@ -113,7 +113,7 @@ body.page-prestations .cta {
   justify-content: center;
   background:
     linear-gradient(rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 0.5)),
-    url("assets/fond_contact_1920x1080.jpg") center 35% / cover no-repeat;
+    url("fond_contact_1920x1080.jpg") center 35% / cover no-repeat;
 }
 .hero.contact-bg .tagline {
   font-size: 1.45rem;
@@ -138,7 +138,7 @@ body.page-prestations .cta {
   min-height: 50vh;
   background:
     linear-gradient(rgba(5, 5, 5, 0.55), rgba(5, 5, 0.88)),
-    url("assets/logo_text_1920x1080.jpg") center / cover no-repeat;
+    url("logo_text_1920x1080.jpg") center / cover no-repeat;
 }
 .hero .logo-wrap {
   position: relative;
@@ -247,7 +247,7 @@ section { padding: 5rem 1.5rem; }
   display: flex; align-items: center;
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.55) 55%, rgba(5, 5, 5, 0.25) 100%),
-    url("assets/hero_1920x1080.jpg") right center / cover no-repeat;
+    url("hero_1920x1080.jpg") right center / cover no-repeat;
 }
 .about .wrap { max-width: 560px; }
 .about h1, .about h2 {
@@ -378,7 +378,7 @@ body.mentions .hero.logo-bg {
   justify-content: center;
   background:
     linear-gradient(rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.75)),
-    url("assets/logo_text_1920x1080.jpg") center 55% / cover no-repeat;
+    url("logo_text_1920x1080.jpg") center 55% / cover no-repeat;
 }
 
 /* Prestations uniquement */
