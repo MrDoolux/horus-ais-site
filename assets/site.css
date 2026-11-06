@@ -70,6 +70,12 @@ body.mentions footer {
   flex-shrink: 0;
 }
 
+/* Prestations : nav statique */
+body.page-prestations nav.top {
+  position: relative;
+  background: #050505;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -82,10 +88,8 @@ body.mentions footer {
   background: url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
 }
 .hero.presentatio {
-  min-height: 70vh;
-  background:
-    linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.92)),
-    url("fond_presentatio_1920x1080.jpg") center / cover no-repeat;
+  min-height: 40vh;
+  background: #050505;
 }
 .hero.contact-bg {
   flex: 1;
@@ -260,26 +264,21 @@ section { padding: 5rem 1.5rem; }
 
 /* Prestations : parallax — une seule image, le texte défile par-dessus */
 body.page-prestations {
-  background: #050505 url("fond_presentatio_1920x1080.jpg") center top / cover no-repeat fixed;
+  background: #050505;
 }
 body.page-prestations .particuliers,
 body.page-prestations .pros {
   background: transparent;
 }
-body.page-prestations .tarifs,
 body.page-prestations .cta {
-  background: rgba(5, 5, 5, 0.88);
+  background: #030303;
 }
 
 .particuliers, .prestations {
-  background:
-    linear-gradient(rgba(5, 5, 5, 0.75), rgba(5, 5, 5, 0.92)),
-    url("fond_presentatio_1920x1080.jpg") center / cover no-repeat;
+  background: #050505;
 }
 .pros {
-  background:
-    linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.95)),
-    url("fond_cosmos_1920x1080.jpg") center / cover no-repeat;
+  background: #050505;
 }
 .tarifs { background: #050505; }
 .table-wrap { overflow-x: auto; border: 1px solid rgba(212, 175, 55, 0.15); }
