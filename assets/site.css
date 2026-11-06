@@ -89,7 +89,7 @@ body.page-prestations .bg-video {
 }
 body.page-prestations nav.top {
   position: relative;
-  background: #050505;
+  background: rgba(5, 5, 5, 0.92);
   z-index: 10;
 }
 body.page-prestations .hero.presentatio,
@@ -99,14 +99,25 @@ body.page-prestations .cta,
 body.page-prestations footer {
   position: relative;
   z-index: 10;
-  background: transparent;
 }
 body.page-prestations .hero.presentatio {
   min-height: 40vh;
   padding: 3.5rem 1.5rem 1.5rem;
+  background: rgba(5, 5, 5, 0.65);
+}
+body.page-prestations .particuliers,
+body.page-prestations .pros {
+  background: rgba(5, 5, 5, 0.55);
 }
 body.page-prestations .cta {
-  background: rgba(5, 5, 5, 0.6);
+  background: rgba(5, 5, 5, 0.75);
+}
+body.page-prestations footer {
+  background: rgba(5, 5, 5, 0.9);
+}
+body.page-prestations .card {
+  background: rgba(10, 10, 10, 0.82);
+  border: 1px solid rgba(212, 175, 55, 0.35);
 }
 
 /* À propos : nav relative */
