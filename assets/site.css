@@ -378,6 +378,25 @@ body.mentions footer .copy {
   font-size: 0.8rem;
 }
 /* Liens uniquement */
+body.liens .hero.liens::before {
+  content: "";
+  position: absolute;
+  top: calc(64px + 2.3rem + 1px);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 92vw);
+  z-index: 8;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, transparent 27px, rgba(212, 175, 55, 0.25) 27px, rgba(212, 175, 55, 0.25) 28px, transparent 28px),
+    linear-gradient(to right, transparent calc(100% - 28px), rgba(212, 175, 55, 0.25) calc(100% - 28px), rgba(212, 175, 55, 0.25) calc(100% - 27px), transparent calc(100% - 27px)),
+    rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 28px, #000 calc(100% - 28px), transparent 100%);
+}
 body.liens .hero.liens .liens-center {
   position: relative;
   left: auto;
