@@ -378,8 +378,24 @@ body.mentions footer .copy {
   font-size: 0.8rem;
 }
 /* Liens uniquement */
+body.liens .hero.liens .liens-center {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  gap: 1.15rem;
+}
+body.liens .hero.liens h1 {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
 body.liens .tagline {
   font-size: 1.125rem;
+  color: var(--text);
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+body.liens .hero.liens .liens-center .actions {
+  margin-top: 1.5rem;
 }
 body.liens .btn {
   font-size: 1rem;
@@ -439,6 +455,15 @@ body.page-prestations footer .copy {
   font-size: 0.8rem;
 }
 /* A propos uniquement */
+body.page-apropos .about {
+  background-color: #050505;
+  background-image:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.88) 42%, rgba(5, 5, 5, 0.55) 68%, rgba(5, 5, 5, 0.22) 100%),
+    url("hero_1920x1080.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+}
 body.page-apropos .about p,
 body.page-apropos .about li {
   font-size: 1.125rem;
