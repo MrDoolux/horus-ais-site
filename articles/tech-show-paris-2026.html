@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deux jours au Tech Show Paris 2026 — Horus AIS</title>
+  <meta name="description" content="Notes de visite au Tech Show Paris, 18 et 19 novembre 2026. Ce qui m’a retenu : la personne à la porte, l’énergie, le débit, les salles qui restent en France." />
+  <meta name="author" content="Ludovic Suy" />
+  <link rel="canonical" href="https://horus-ais.com/articles/tech-show-paris-2026.html" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Deux jours au Tech Show Paris 2026 — Horus AIS" />
+  <meta property="og:description" content="Notes de visite au Tech Show Paris, 18 et 19 novembre 2026. Ce qui m’a retenu : la personne à la porte, l’énergie, le débit, les salles qui restent en France." />
+  <meta property="og:image" content="https://horus-ais.com/assets/hero_1920x1080.jpg" />
+  <meta property="og:url" content="https://horus-ais.com/articles/tech-show-paris-2026.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Horus AIS" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deux jours au Tech Show Paris 2026 — Horus AIS" />
+  <meta name="twitter:description" content="Notes de visite au Tech Show Paris, 18 et 19 novembre 2026. Ce qui m’a retenu : la personne à la porte, l’énergie, le débit, les salles qui restent en France." />
+  <meta name="twitter:image" content="https://horus-ais.com/assets/hero_1920x1080.jpg" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    body.page-article { background: #050505; }
+    body.page-article::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: url("../assets/images/tech-show-2026-datacenter-fond-sombre.jpg") center / cover no-repeat;
+      opacity: 0.16;
+      pointer-events: none;
+    }
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      background: var(--gold);
+      color: #050505;
+      padding: 0.4rem 0.7rem;
+      z-index: 200;
+    }
+    .skip:focus { top: 0.6rem; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .article {
+      padding: 7.5rem 1.5rem 4rem;
+      position: relative;
+      z-index: 10;
+    }
+    .article .wrap { max-width: 720px; }
+    .article .kicker {
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .article h1 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: clamp(1.2rem, 3.1vw, 1.75rem);
+      line-height: 1.35;
+      margin-bottom: 0.7rem;
+    }
+    .article .meta {
+      color: #6a6358;
+      font-size: 0.92rem;
+      margin-bottom: 1.8rem;
+    }
+    .article .lede {
+      font-size: 1.12rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .article p {
+      color: #cfc6b6;
+      font-size: 1.05rem;
+      margin-bottom: 0.95rem;
+    }
+    .article nav.toc {
+      border-top: 1px solid rgba(212, 175, 55, 0.22);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      padding: 0.9rem 0;
+      margin: 1.8rem 0 2.4rem;
+    }
+    .article nav.toc p {
+      color: #6a6358;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+    .article nav.toc ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.9rem;
+      padding: 0;
+      margin: 0;
+    }
+    .article nav.toc a {
+      color: #a89f8c;
+      font-size: 0.95rem;
+    }
+    .article nav.toc a:hover { color: var(--gold); }
+    .article h2 {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      margin: 2.8rem 0 0.85rem;
+    }
+    .article h3 {
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: 0.01em;
+      margin: 2rem 0 0.2rem;
+    }
+    .article .stand {
+      color: #6a6358;
+      font-size: 0.88rem;
+      margin-bottom: 0.8rem;
+    }
+    .article figure { margin: 0.9rem 0 1.15rem; }
+    .article figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      background: #0c0c0c;
+    }
+    .article figcaption {
+      color: #6a6358;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      margin-top: 0.4rem;
+    }
+    .article ul.faits {
+      list-style: none;
+      margin: 0.3rem 0 1rem;
+      padding: 0;
+    }
+    .article ul.faits li {
+      color: #cfc6b6;
+      font-size: 1.02rem;
+      padding-left: 0.95rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+    .article ul.faits li::before {
+      content: "";
+      width: 0.28rem;
+      height: 0.28rem;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 0.62rem;
+    }
+    .article .retenu {
+      border-left: 2px solid rgba(212, 175, 55, 0.22);
+      padding-left: 0.95rem;
+      margin: 0.4rem 0 0.6rem;
+    }
+    .article .retenu p { margin-bottom: 0.7rem; }
+    .article .retenu p:last-child { margin-bottom: 0; }
+    .article .liens {
+      color: #6a6358;
+      font-size: 0.92rem;
+      margin-top: 0.85rem;
+    }
+    .article .liens a { margin-right: 0.9rem; }
+    .article .colophon {
+      margin-top: 3rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.22);
+      color: #6a6358;
+      font-size: 0.88rem;
+    }
+    .article .back { margin-top: 1.6rem; }
+    @media (max-width: 640px) {
+      .article .lede { font-size: 1.05rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      body.page-article::before, #dust-canvas, nav.top { display: none; }
+      .article { padding-top: 1rem; }
+      .article h1, .article h2, .article .kicker, .article a { color: #111; }
+      .article p, .article ul.faits li, .article .meta, .article figcaption, .article .colophon { color: #222; }
+      .article figure img { border-color: #ccc; }
+    }
+  </style>
+</head>
+<body class="page-article">
+  <a class="skip" href="#contenu">Aller au texte</a>
+  <canvas id="dust-canvas"></canvas>
+  <nav class="top">
+    <a href="../index.html" class="brand">
+      <img src="../assets/faucon_adulte_blue.jpg" alt="Logo Horus AIS, tête de faucon doré de profil dans un cercle sur fond bleu nuit" />
+      <span>Horus AIS</span>
+    </a>
+    <ul>
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../apropos.html">À propos</a></li>
+      <li><a href="../prestations.html">Prestations</a></li>
+      <li><a class="current" href="index.html">Notes</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../liens.html">Liens</a></li>
+      <li><a href="../mentions-legales.html">Mentions</a></li>
+    </ul>
+  </nav>
+
+  <article class="article" id="contenu">
+    <div class="wrap">
+      <p class="kicker">Horus AIS · Note · novembre 2026</p>
+      <h1>Deux jours au Tech Show Paris</h1>
+      <p class="meta">Ludovic Suy — administrateur d’infrastructures sécurisées</p>
+
+      <p class="lede">Les 18 et 19 novembre 2026, à Paris Expo Porte de Versailles. Hall 5, Data Centre World, et les salons posés à côté.</p>
+      <p>Je n’ai pas arpenté les allées pour remplir un tableau. Quelques stands m’ont arrêté. Derrière, toujours la même question&#8239;: où un service utile peut tenir, en France, sans que la personne à la porte, le courant, le froid ou le lien deviennent le point faible.</p>
+      <p>Horus AIS ne construit pas ces salles. Horus AIS y déploie ce qui tourne dessus. La visite sert à voir sur quoi ce service peut encore s’appuyer.</p>
+
+      <nav class="toc" aria-label="Sommaire">
+        <p>Dans la visite</p>
+        <ol>
+          <li><a href="#porte">La personne à la porte</a></li>
+          <li><a href="#energie">Le courant et le froid</a></li>
+          <li><a href="#debit">Le débit</a></li>
+          <li><a href="#salles">Les salles</a></li>
+          <li><a href="#dalle">Sous la dalle</a></li>
+          <li><a href="#piste">Une piste que je garde</a></li>
+          <li><a href="#courbes">Les courbes</a></li>
+        </ol>
+      </nav>
+
+      <section id="porte">
+        <h2>La personne à la porte</h2>
+        <p>Avant les mégawatts, il y a quelqu’un qui entre. Badge, mot de passe, empreinte plate&#8239;: tout cela se copie. Au stand, on me montrait autre chose.</p>
+
+        <h3 id="id4us">ID4US</h3>
+        <p class="stand">Stand C50, Startup Space</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-id4us.jpeg" alt="Stand ID4US au Tech Show Paris 2026, biométrie ultrasonique." />
+          <figcaption>Stand ID4US, espace startups.</figcaption>
+        </figure>
+        <p>ID4US est à Saint-Martin-d’Hères et à Tours. La démo tient dans un contact. L’ultrason ne s’arrête pas au dessin du doigt&#8239;: la surface, ce qu’il y a dessous, le sang qui passe, le fin réseau des vaisseaux. L’idée est simple. Un doigt vivant est plus difficile à imiter qu’une image d’empreinte.</p>
+        <ul class="faits">
+          <li>Plateforme de biométrie ultrasonique 4D, fondée en 2022 par Christophe Bernard.</li>
+          <li>Certification annoncée FIDO BioLevel 2+, taux de fausse acceptation de l’ordre de 10<sup>−6</sup>.</li>
+          <li>Environ quarante experts, plusieurs dizaines de brevets. Entrée dans French Tech 2030 en octobre 2026, dans le contingent cyber.</li>
+          <li>Cibles publiées&#8239;: accès physique et privilégié, data centers, infrastructures critiques, finance, terminaux de confiance.</li>
+        </ul>
+        <div class="retenu">
+          <p>Dans une salle où l’on garde des services sous la main, ouvrir une baie ou une console redevient une affaire de physique. Je retiens le sujet. Je le laisse mûrir avant d’en faire une brique.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.id4us.fr">id4us.fr</a>
+          <a href="https://www.techshowparis.fr/en/exhibitors/id4us">Fiche exposant, stand C50</a>
+        </p>
+      </section>
+
+      <section id="energie">
+        <h2>Le courant et le froid</h2>
+        <p>Le calcul dense chauffe. Au salon, trois réponses différentes&#8239;: noyer les machines, enfermer les batteries, et tenir le secours quand le réseau lâche.</p>
+
+        <h3 id="totalinux">TotaLinuX / ITrium</h3>
+        <p class="stand">Stand K90 · Johan Da Silva</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-totalinux.jpeg" alt="Démonstrateur d’immersion TotaLinuX : cuve avec serveurs Lenovo et groupe hydraulique." />
+          <figcaption>Le bac du stand K90. Serveurs en immersion, groupe hydraulique à côté.</figcaption>
+        </figure>
+        <p>TotaLinuX est à Jouy-en-Josas, intégrateur HPC et cloud hybride depuis 2004. ITrium 1 est leur datacenter en immersion. Les serveurs baignent dans le fluide BioLife de TotalEnergies, aussi nommé Ice Coolant, biosourcé, annoncé pour vingt-cinq ans. La chaleur repart vers le bâtiment, puis vers des immeubles.</p>
+        <ul class="faits">
+          <li>Siège au 2 rue Jean-Baptiste Huet, 78350 Jouy-en-Josas.</li>
+          <li>PUE annoncé proche de 1,01, sur la page ITrium Green &amp; Cloud.</li>
+          <li>Économie électrique annoncée entre 60&nbsp;% et 80&nbsp;%, selon les pages qui en parlent.</li>
+          <li>Présenté comme le premier datacenter français de ce type. L’Usine Digitale, février 2025.</li>
+        </ul>
+        <div class="retenu">
+          <p>Voir un calcul dense tenir dans un fluide, en France, avec la chaleur réemployée, change la conversation avec quelqu’un qui compte les kilowatts. Le lieu, le mode de froid, le réemploi&#8239;: c’est l’infrastructure qui porte le service. Le bac reste le leur.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.totalinux.fr">totalinux.fr</a>
+          <a href="https://www.totalinux.fr/itrium/">ITrium</a>
+        </p>
+
+        <h3 id="armorgard">Armorgard</h3>
+        <p class="stand">Stand H30, Hall 5</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-armorgard.jpeg" alt="Stand Armorgard au Tech Show Paris 2026, unités de charge pour batteries lithium-ion." />
+          <figcaption>Armorgard, côté batteries lithium-ion.</figcaption>
+        </figure>
+        <p>À côté des salles, on charge des batteries sans y penser. Outils, onduleurs mobiles, matériel de maintenance. Armorgard montrait des casiers et une chambre de confinement pour ça. Les fiches décrivent de l’acier thermolaqué.</p>
+        <ul class="faits">
+          <li>VoltHub VH16EU&#8239;: acier de 1,5&nbsp;mm, IP55, seize casiers, coupure d’alimentation à 60&nbsp;°C. Essai Ineris selon la UL&nbsp;1487.</li>
+          <li>Qpod QP1&#8239;: chambre compacte d’intérieur, acier thermolaqué, batteries jusqu’à 1,5&nbsp;kWh.</li>
+          <li>Armorgard France est à Loriol-sur-Drôme. Le siège du groupe est à Fareham, au Royaume-Uni.</li>
+        </ul>
+        <div class="retenu">
+          <p>Un emballement thermique à deux mètres d’une salle n’est pas un détail de quai. Le casier garde le départ de feu dans le volume de charge. Encore de la physique, juste à côté du groupe électrogène et de la fibre.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.armorgard.fr">armorgard.fr</a>
+          <a href="https://www.armorgard.fr/produits/unites-chargement-batteries/volthub-vh16eu/">VoltHub VH16EU</a>
+        </p>
+
+        <h3 id="yuchai">YUCHAI</h3>
+        <p class="stand">Groupe électrogène data center · numéro de stand non confirmé sur une fiche publique</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-yuchai.jpeg" alt="Groupe électrogène YUCHAI présenté pour les data centers au Tech Show Paris 2026." />
+          <figcaption>YUCHAI, le secours quand le réseau s’arrête.</figcaption>
+        </figure>
+        <p>Plus loin, les groupes qui prennent le relais. YUCHAI construit des moteurs et des groupes électrogènes. Le slogan tenu au salon tient en une ligne&#8239;: alimenter ce qui ne peut pas tomber. Je n’ai pas de numéro de stand public à poser à côté du nom.</p>
+        <ul class="faits">
+          <li>Groupe fondé en 1951 à Yulin, dans le Guangxi. Export annoncé vers plus de 180 pays.</li>
+          <li>Série YC16VC publiée pour cet usage&#8239;: 2&nbsp;250 à 3&nbsp;750&nbsp;kVA, 50&nbsp;Hz, 1&nbsp;500&nbsp;tr/min.</li>
+          <li>Puissances prime et secours alignées sur l’ISO&nbsp;8528. Le régime DCP est celui affiché pour le secours de salle.</li>
+        </ul>
+        <div class="retenu">
+          <p>Le service s’arrête si le secours ne tient pas la charge. YUCHAI est l’offre de moteurs que j’ai croisée pour ça. Utile à connaître. Pas un groupe que je range dans une proposition.</p>
+        </div>
+        <p class="liens">
+          <a href="https://en.yuchaidiesel.com/">en.yuchaidiesel.com</a>
+          <a href="http://www.yuchaiie.com/product/41790.html">Fiche YC16VC</a>
+        </p>
+      </section>
+
+      <section id="debit">
+        <h2>Le débit</h2>
+        <p>Dès que les machines changent de génération, le lien change avec. Dans la baie d’abord, entre les sites ensuite, puis sur le module qui raccorde les accélérateurs.</p>
+
+        <h3 id="corning">Corning</h3>
+        <p class="stand">Stand E35</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-corning.jpeg" alt="Stand Corning au Tech Show Paris 2026, câblage fibre pour data center." />
+          <figcaption>Corning, la fibre jusqu’à la baie.</figcaption>
+        </figure>
+        <p>Corning montrait le câblage de la salle, tiroirs compris. Trunks et harness arrivent déjà connectorisés. On parle d’un chemin qui part du 10&nbsp;Gbit/s et qui est déjà écrit jusqu’au 800&nbsp;Gbit/s et au 1,6&nbsp;Tbit/s.</p>
+        <ul class="faits">
+          <li>EDGE8, système préconnectorisé en base 8. Un tiroir 1U monte jusqu’à 96 fibres.</li>
+          <li>EDGE et EDGE8 tiennent dans le même rack.</li>
+          <li>RocketRibbon pour les liens haute densité, des hyperscales aux salles privées.</li>
+          <li>Corning SAS est à Avon. La fiche du salon donne une adresse à Berlin.</li>
+        </ul>
+        <div class="retenu">
+          <p>La baie fibre est le premier endroit où la densité se voit. Quand le calcul monte, le câblage interne doit suivre sans démonter tout le rack. C’est le lien entre les serveurs et le bâtiment.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.corning.com/optical-communications/emea/fr/home.html">Corning Optical Communications</a>
+          <a href="https://www.techshowparis.fr/exhibitors/corning">Fiche exposant, stand E35</a>
+        </p>
+
+        <h3 id="lambdagain">LambdaGain</h3>
+        <p class="stand">Stand C40, exposant FONEX</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-lambdagain.jpeg" alt="Stand LambdaGain, division optique de FONEX, au Tech Show Paris 2026." />
+          <figcaption>LambdaGain, au stand FONEX.</figcaption>
+        </figure>
+        <p>LambdaGain est la division d’optique passive de FONEX. Le siège est à Saint-Laurent, au Québec. L’adresse française de la fiche est à Nozay. Le propos&#8239;: faire passer plus de débit sur une fibre déjà tirée, et amplifier sans ajouter une baie optique rien que pour la ligne.</p>
+        <ul class="faits">
+          <li>Composants WDM passifs, mux et demux, pour l’accès, le métro et l’interconnexion de salles.</li>
+          <li>Pluggable Line System, annoncé en février 2025. L’amplificateur EDFA tient dans un module enfiché dans un port MSA.</li>
+          <li>En mai 2025, des composants DWDM LambdaGain sont cités chez Bouygues Telecom, jusqu’à plusieurs voies de 400&nbsp;Gbit/s.</li>
+        </ul>
+        <div class="retenu">
+          <p>Entre deux sites qui hébergent des services qu’on veut garder en France, la fibre en place compte autant que la salle. Le passif la multiplie. Le module d’amplification reste dans l’équipement déjà en rack.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.lambdagain.com">lambdagain.com</a>
+          <a href="https://www.fonex.com/lambdagain/">FONEX, division LambdaGain</a>
+        </p>
+
+        <h3 id="optique">AERECH / MACROCHIP</h3>
+        <p class="stand">AERECH, stand P42 · MACROCHIP, stand H25 sur la fiche exposant</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-macrochip-aerech.jpeg" alt="Transceivers optiques AERECH et MACROCHIP pour l’interconnexion des clusters, au Tech Show Paris 2026." />
+          <figcaption>Deux stands, le même sujet&#8239;: le module entre les accélérateurs.</figcaption>
+        </figure>
+        <p>AERECH, à Shenzhen depuis 2015. MACROCHIP, à Quanzhou, qui se présente comme fabricant de puces et de transceivers en silicium photonique. Les deux vendent le lien optique qui raccorde les cartes. Une autre liste du salon place MACROCHIP au A32. Je garde le H25 de la fiche, et le doute avec.</p>
+        <ul class="faits">
+          <li>Catalogue public AERECH&#8239;: jusqu’au 400G QSFP-DD et au 800G OSFP. Au stand, la conversation allait jusqu’au 1,6T, sans fiche publique aussi détaillée.</li>
+          <li>Fiche salon MACROCHIP&#8239;: 100G à 1,6T. Le site documente surtout 25G à 800G, et annonce des prototypes 1,6T.</li>
+          <li>Table 800G OSFP MACROCHIP&#8239;: SR8 à 100&nbsp;m, DR8 à 500&nbsp;m, DR8+ et 2×FR4 à 2&nbsp;km, de 0 à 70&nbsp;°C.</li>
+        </ul>
+        <div class="retenu">
+          <p>L’optique suit les GPU. 400G, puis 800G, puis 1,6T&#8239;: trois crans du même lien, entre les baies d’un site qui héberge du calcul. Le module n’est pas le service. C’est la contrainte qui arrive avec lui.</p>
+        </div>
+        <p class="liens">
+          <a href="https://aerech.com">aerech.com</a>
+          <a href="https://www.macrochip-tech.com">macrochip-tech.com</a>
+        </p>
+      </section>
+
+      <section id="salles">
+        <h2>Les salles</h2>
+        <p>À un moment, la question quitte le composant. Elle devient&#8239;: dans quel bâtiment, dans quel département, avec quelle équipe sur place.</p>
+
+        <h3 id="nexeren">NEXEREN</h3>
+        <p class="stand">Stand B20, Hall 5</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-nexeren.jpeg" alt="Au stand NEXEREN, avec un membre de l’équipe, devant le mur des six datacenters, du SLA 99,98 % et du Tier IV." />
+          <figcaption>Stand B20. Six datacenters, 99,98&nbsp;% de SLA, Tier&nbsp;IV sur le mur.</figcaption>
+        </figure>
+        <p>NEXEREN exploite ses salles en France. Filiale du groupe XEFI, siège à Rillieux-la-Pape, société née en 2013 sous le nom SHD. Le mur annonce six datacenters, 99,98&nbsp;% et le Tier&nbsp;IV. Le site précise le périmètre&#8239;: la double certification Tier&nbsp;IV porte sur deux sites.</p>
+        <ul class="faits">
+          <li>Six sites&#8239;: Ain, Rhône, Isère, Puy-de-Dôme, Hérault. Hors du seul hub parisien.</li>
+          <li>SLA de 99,98&nbsp;% affiché au stand et sur le site. Double certification Tier&nbsp;IV Design et Facility sur deux sites, pas sur les six.</li>
+          <li>Réseau annoncé en Tier&nbsp;III et Tier&nbsp;IV, avec ISO&nbsp;27001 et HDS. PUE moyen annoncé de 1,2.</li>
+          <li>YTA, à Rillieux-la-Pape, présenté en novembre 2026 comme le sixième datacenter.</li>
+        </ul>
+        <div class="retenu">
+          <p>La souveraineté dont je parle a une adresse. Une salle allumée, un deuxième site, une équipe qui se déplace, le tout sous droit français. C’est là qu’un service peut physiquement tenir. Horus AIS vient au-dessus.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.nexeren.com">nexeren.com</a>
+          <a href="https://itrnews.com/articles/211724/nexeren-renforce-son-equipe.html">YTA, ITRnews, 19 novembre 2026</a>
+        </p>
+
+        <h3 id="dc2scale">DC2SCALE</h3>
+        <p class="stand">Stand D20, Cloud &amp; AI Infrastructure</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-dc2scale.png" alt="Visuel DC2SCALE, opérateur de colocation français." />
+          <figcaption>DC2SCALE. Peu de mur recopié, une équipe avec qui on parle.</figcaption>
+        </figure>
+        <p>Quelques mètres plus loin, même métier, autre ton. L’équipe au stand était accueillante. Je n’ai pas recopié de panneau. La société se présente comme un opérateur français qui conçoit et exploite ses propres salles.</p>
+        <ul class="faits">
+          <li>dc2scale SAS, 128 rue de la Boétie, 75008 Paris.</li>
+          <li>Fiche du salon&#8239;: colocation de 1 à 100&nbsp;kW, espace privatif de 100&nbsp;kW à 1&nbsp;MW, datacenter dédié au-delà de 1&nbsp;MW.</li>
+          <li>Capitaux français revendiqués. Rien d’autre relevé sur place.</li>
+        </ul>
+        <div class="retenu">
+          <p>Un clin d’œil, à côté de NEXEREN. Une salle française de plus, des gens faciles à aborder. Pas un hébergement choisi sur un stand.</p>
+        </div>
+        <p class="liens">
+          <a href="https://dc2scale.fr">dc2scale.fr</a>
+          <a href="https://www.techshowparis.fr/en/exhibitors/dc2scale-3">Fiche exposant, stand D20</a>
+        </p>
+      </section>
+
+      <section id="dalle">
+        <h2>Sous la dalle</h2>
+        <p>La bonne salle, le bon froid et le bon opérateur tiennent encore à ce qui passe dessous. Électricité, eau, télécom, fibre&#8239;: une partie du site est enterrée, dans l’enceinte et sur la voie publique.</p>
+
+        <h3 id="ej">EJ</h3>
+        <p class="stand">Stand G32</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-ej.jpeg" alt="Chambre composite EJ au Tech Show Paris 2026. Le panneau annonce la classe F900, 900 kN, sans remblai béton." />
+          <figcaption>Le panneau du stand&#8239;: chambre composite, F900, 900&nbsp;kN, sans remblai béton.</figcaption>
+        </figure>
+        <p>EJ fait les trappes, les tampons et les chambres qui donnent accès aux réseaux enterrés. Groupe familial depuis 1883. Au stand, une chambre composite de nouvelle génération, chambre et couvercles dans le même paquet. Le catalogue en ligne ne décrit pas encore cette pièce-là. Je laisse les deux versions côte à côte.</p>
+        <ul class="faits">
+          <li>Panneau du stand&#8239;: tenue jusqu’à F900, soit 900&nbsp;kN, composite renforcé de fibre de verre. Parois porteuses sans remblai béton.</li>
+          <li>Montage modulaire, en kit à plat ou en anneaux préassemblés. Composite thermodurcissable, annoncé léger et résistant à la corrosion.</li>
+          <li>Siège EMEA à Saint-Crépin-Ibouvillers. Agence française à Chaponnay.</li>
+          <li>En ligne, la chambre NEXUS est en polypropylène, testée en D400. Les pièces F900 courantes du catalogue sont en fonte.</li>
+        </ul>
+        <div class="retenu">
+          <p>Une salle peut être en France, gardée, refroidie, et s’arrêter quand même si la chambre qui porte les fourreaux cède. Je suis reparti avec ça plus qu’avec une référence à commander.</p>
+        </div>
+        <p class="liens">
+          <a href="https://www.ejco.com">ejco.com</a>
+          <a href="https://www.ejco.com/fr/fr/sectors-of-activity/data-center-fr">EJ, data centers</a>
+        </p>
+      </section>
+
+      <section id="piste">
+        <h2>Une piste que je garde</h2>
+        <p>Akash n’exposait pas. Le bac de TotaLinuX, si. Je les rapproche quand même. La question est la même des deux côtés&#8239;: sortir la chaleur sans y passer tout le courant. Ce n’est pas un produit commun. Aucune page ouverte ne décrit un essai du diamant dans un bac ITrium.</p>
+
+        <h3 id="combo">Akash × TotaLinuX × MiTAC</h3>
+        <p class="stand">TotaLinuX vu au K90 · Akash absent du salon · le MiTAC cité est un serveur à air</p>
+        <figure>
+          <img src="../assets/images/tech-show-2026-akash.webp" alt="Visuel produit Diamond Cooling d’Akash Systems, serveur avec les logos Akash, AMD et MiTAC Computing." />
+          <figcaption>Visuel produit Akash, Diamond Cooling, avec AMD et MiTAC. Pas une photo de stand.</figcaption>
+        </figure>
+        <p>Le diamant est sur la puce. Akash le présente comme une couche en plus de l’air et du liquide. Le bac ITrium, de son côté, noie d’autres machines dans le fluide et renvoie une eau chaude vers le bâtiment. Le serveur dont parle le communiqué Akash du 3 mars 2026, le MiTAC G8825Z5, reste une machine à air&#8239;: quinze ventilateurs à l’arrière, flux d’air, diamant ajouté sur cette base. Il ne descend pas dans le bac.</p>
+        <ul class="faits">
+          <li>Communiqué du 3 mars 2026, AMD Instinct MI350X&#8239;: jusqu’à 10&nbsp;°C de moins sur le GPU et la HBM, jusqu’à 22&nbsp;% de FLOPs par watt autour de 24&nbsp;°C, jusqu’à 15&nbsp;% de débit de tokens autour de 49&nbsp;°C.</li>
+          <li>Deux phrases Akash, deux grandeurs&#8239;: une évacuation jusqu’à cinq fois plus rapide que le cuivre, et une conductivité annoncée d’au moins 1&nbsp;500&nbsp;W/m·K, près de quatre fois le cuivre ou le carbure de silicium.</li>
+          <li>Côté ITrium, déjà vu au stand&#8239;: fluide BioLife, PUE proche de 1,01, chaleur réemployée.</li>
+          <li>Le couple diamant plus bac reste une hypothèse. Le G8825Z5 n’est pas le matériel de cette hypothèse.</li>
+        </ul>
+        <div class="retenu">
+          <p>Le datacenter reste chez celui qui l’exploite. Je déploie le service au-dessus, pour quelqu’un qui veut la salle en France et le moins de kilowatts possible au refroidissement. Rapprocher une puce qui sort sa chaleur et un bac qui la réemploie est une piste de travail. Le G8825Z5, lui, reste à l’air.</p>
+        </div>
+        <p class="liens">
+          <a href="https://akashsystems.com/technology/">Akash, technologie</a>
+          <a href="https://www.prnewswire.com/news-releases/akash-systems-announces-worlds-first-diamond-cooled-ai-servers-with-amd-instinct-mi350x-gpus-and-mitac-computing-302702419.html">Communiqué MiTAC, 3 mars 2026</a>
+        </p>
+      </section>
+
+      <section id="courbes">
+        <h2>Les courbes</h2>
+        <p>En rentrant, j’ai posé deux graphiques de travail à côté de ces stands. Ils ont été générés avec Gemini. Ce sont des lectures, pour voir où la pression monte. Pas des mesures prises au salon, et pas une étude publiée.</p>
+
+        <h3 id="rupture">Pression sur les ressources, 2024–2040</h3>
+        <figure>
+          <img src="../assets/images/tech-show-2026-ai-rupt.jpeg" alt="Graphique de travail : accélération vers une rupture environnementale, cumul IA et cloud plus voiture électrique, face à l’IA et au cloud seuls, de 2024 à 2040." />
+          <figcaption>Lecture 1. IA et cloud, puis le même cumul avec la voiture électrique. Lithium, terres rares, cuivre, électricité bas-carbone.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/images/tech-show-2026-ai-rupt-2.jpeg" alt="Graphique de travail : trajectoire de la pression environnementale de l’IA, scénario tendanciel face à un scénario plus sobre, de 2024 à 2040." />
+          <figcaption>Lecture 2. Croissance laissée à elle-même, face à un scénario plus tenu&#8239;: sobriété, recyclage, refroidissement.</figcaption>
+        </figure>
+        <ul class="faits">
+          <li>Sur la première courbe, le cumul IA, cloud et voiture électrique avance de quatre à cinq ans le franchissement des seuils, par rapport à l’IA et au cloud seuls.</li>
+          <li>Sur la seconde, l’accélération est placée après 2026. Un seuil local vers 2032, eau et réseaux. Un seuil plus large vers 2035-2036, côté minerais.</li>
+          <li>Le scénario plus tenu repose sur trois leviers dessinés sur le graphique&#8239;: sobriété, recyclage, refroidissement.</li>
+        </ul>
+        <div class="retenu">
+          <p>Le bac du K90 et le diamant dont parle Akash ne répondent pas à la courbe entière. Ils en déplacent un morceau&#8239;: le courant dépensé à sortir la chaleur, et le matériel qu’on cesse de faire vieillir trop vite. C’est pour ça que ces stands m’ont arrêté. Le service utile ne tient que si la salle tient encore dans dix ans.</p>
+        </div>
+        <p class="liens">Graphiques de travail générés avec Gemini, 2026.</p>
+      </section>
+
+      <section id="merci">
+        <h2>Merci</h2>
+        <p>Merci aux personnes qui ont pris le temps sur les stands. Johan Da Silva, au bac du K90, et les autres, celles dont je n’ai pas noté le nom et qui ont quand même expliqué.</p>
+        <p>Un mot aussi pour xAI. L’environnement de travail dans lequel cette veille a été tenue a rendu le tri possible, une fois rentré du salon.</p>
+      </section>
+
+      <p class="colophon">Visite des 18 et 19 novembre 2026, Paris Expo Porte de Versailles. Les chiffres viennent des pages liées. Là où deux pages ne disent pas la même chose, les deux restent.</p>
+
+      <p class="back"><a class="btn" href="index.html">Retour aux notes</a></p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="links">
+      <a href="../index.html">Accueil</a>
+      <a href="../apropos.html">À propos</a>
+      <a href="../prestations.html">Prestations</a>
+      <a href="index.html">Notes</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../liens.html">Liens</a>
+      <a href="../mentions-legales.html">Mentions légales</a>
+    </div>
+    <p class="copy">Horus AIS · Lab cybersécurité · Ludovic Suy — micro-entreprise</p>
+  </footer>
+  <script src="../assets/particles.js"></script>
+</body>
+</html>
