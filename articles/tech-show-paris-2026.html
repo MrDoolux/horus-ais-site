@@ -140,6 +140,35 @@
       line-height: 1.45;
       margin-top: 0.4rem;
     }
+    .article p.observation-lien {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 2rem 0;
+    }
+    .article p.observation-lien a {
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .article p.observation-lien a:hover {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+    /* Lien autour de l'image seulement : overflow sur le lien, pas la figure,
+       pour que le zoom ne passe pas sous la légende. Bordure déplacée sur le
+       lien afin que le cadre reste fixe pendant le scale. */
+    .article figure a.graphique-lien {
+      display: block;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      background: #0c0c0c;
+    }
+    .article figure a.graphique-lien img {
+      border: 0;
+      background: transparent;
+      transition: transform 0.2s ease;
+    }
+    .article figure a.graphique-lien:hover img {
+      transform: scale(1.02);
+    }
     .article ul.faits {
       list-style: none;
       margin: 0.3rem 0 1rem;
@@ -196,6 +225,7 @@
       .article h1, .article h2, .article .kicker, .article a { color: #111; }
       .article p, .article ul.faits li, .article .meta, .article figcaption, .article .colophon { color: #222; }
       .article figure img { border-color: #ccc; }
+      .article figure a.graphique-lien { border-color: #ccc; }
     }
   </style>
 </head>
@@ -503,14 +533,18 @@
 
         <h3 id="rupture">Pression sur les ressources, 2024–2040</h3>
         <figure>
-          <img src="../assets/images/tech-show-2026-ai-rupt.jpeg" alt="Graphique de travail : accélération vers une rupture environnementale, cumul IA et cloud plus voiture électrique, face à l’IA et au cloud seuls, de 2024 à 2040." />
+          <a class="graphique-lien" href="observation-graphiques-pression-environnementale.html" aria-label="Ouvrir l’observation sur les graphiques de pression environnementale : accélération vers une rupture environnementale, cumul IA et cloud plus voiture électrique, face à l’IA et au cloud seuls, de 2024 à 2040.">
+            <img src="../assets/images/tech-show-2026-ai-rupt.jpeg" alt="Graphique de travail : accélération vers une rupture environnementale, cumul IA et cloud plus voiture électrique, face à l’IA et au cloud seuls, de 2024 à 2040." />
+          </a>
           <figcaption>Lecture 1. IA et cloud, puis le même cumul avec la voiture électrique. Lithium, terres rares, cuivre, électricité bas-carbone.</figcaption>
         </figure>
         <figure>
-          <img src="../assets/images/tech-show-2026-ai-rupt-2.jpeg" alt="Graphique de travail : trajectoire de la pression environnementale de l’IA, scénario tendanciel face à un scénario plus sobre, de 2024 à 2040." />
+          <a class="graphique-lien" href="observation-graphiques-pression-environnementale.html" aria-label="Ouvrir l’observation sur les graphiques de pression environnementale : trajectoire de la pression environnementale de l’IA, scénario tendanciel face à un scénario plus sobre, de 2024 à 2040.">
+            <img src="../assets/images/tech-show-2026-ai-rupt-2.jpeg" alt="Graphique de travail : trajectoire de la pression environnementale de l’IA, scénario tendanciel face à un scénario plus sobre, de 2024 à 2040." />
+          </a>
           <figcaption>Lecture 2. Croissance laissée à elle-même, face à un scénario plus tenu&#8239;: sobriété, recyclage, refroidissement.</figcaption>
         </figure>
-        <p style="font-size:1.35rem; font-weight:700; margin:2rem 0;"><a href="observation-graphiques-pression-environnementale.html">Notre observation est que…</a></p>
+        <p class="observation-lien"><a href="observation-graphiques-pression-environnementale.html">Notre observation est que…</a></p>
         <ul class="faits">
           <li>Sur la première courbe, le cumul IA, cloud et voiture électrique avance de quatre à cinq ans le franchissement des seuils, par rapport à l’IA et au cloud seuls.</li>
           <li>Sur la seconde, l’accélération est placée après 2026. Un seuil local vers 2032, eau et réseaux. Un seuil plus large vers 2035-2036, côté minerais.</li>
