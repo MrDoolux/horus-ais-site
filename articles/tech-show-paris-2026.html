@@ -169,6 +169,27 @@
     .article figure a.graphique-lien:hover img {
       transform: scale(1.02);
     }
+    /* Zones à particules locales : chaque zone porte son propre canvas,
+       au-dessus de l'image et du titre (z-index 20 dans un contexte isolé). */
+    .article .zone-particules {
+      position: relative;
+      isolation: isolate;
+    }
+    .article .zone-particules > canvas.particules-locales {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
+      pointer-events: none;
+    }
+    /* Lien inline : inline-block avec un débord (padding compensé par une
+       marge négative) pour laisser voler les lettres sans bouger la ligne. */
+    .article p.observation-lien a.zone-particules {
+      display: inline-block;
+      padding: 1.6rem 2.2rem;
+      margin: -1.6rem -2.2rem;
+    }
     .article ul.faits {
       list-style: none;
       margin: 0.3rem 0 1rem;
@@ -226,6 +247,7 @@
       .article p, .article ul.faits li, .article .meta, .article figcaption, .article .colophon { color: #222; }
       .article figure img { border-color: #ccc; }
       .article figure a.graphique-lien { border-color: #ccc; }
+      .article canvas.particules-locales { display: none; }
     }
   </style>
 </head>
@@ -532,19 +554,19 @@
         <p>En rentrant, j’ai posé deux graphiques de travail à côté de ces stands. Ils ont été générés avec Gemini. Ce sont des lectures, pour voir où la pression monte. Pas des mesures prises au salon, et pas une étude publiée.</p>
 
         <h3 id="rupture">Pression sur les ressources, 2024–2040</h3>
-        <figure>
+        <figure class="zone-particules">
           <a class="graphique-lien" href="observation-graphiques-pression-environnementale.html" aria-label="Ouvrir l’observation sur les graphiques de pression environnementale : accélération vers une rupture environnementale, cumul IA et cloud plus voiture électrique, face à l’IA et au cloud seuls, de 2024 à 2040.">
             <img src="../assets/images/tech-show-2026-ai-rupt.jpeg" alt="Graphique de travail : accélération vers une rupture environnementale, cumul IA et cloud plus voiture électrique, face à l’IA et au cloud seuls, de 2024 à 2040." />
           </a>
           <figcaption>Lecture 1. IA et cloud, puis le même cumul avec la voiture électrique. Lithium, terres rares, cuivre, électricité bas-carbone.</figcaption>
         </figure>
-        <figure>
+        <figure class="zone-particules">
           <a class="graphique-lien" href="observation-graphiques-pression-environnementale.html" aria-label="Ouvrir l’observation sur les graphiques de pression environnementale : trajectoire de la pression environnementale de l’IA, scénario tendanciel face à un scénario plus sobre, de 2024 à 2040.">
             <img src="../assets/images/tech-show-2026-ai-rupt-2.jpeg" alt="Graphique de travail : trajectoire de la pression environnementale de l’IA, scénario tendanciel face à un scénario plus sobre, de 2024 à 2040." />
           </a>
           <figcaption>Lecture 2. Croissance laissée à elle-même, face à un scénario plus tenu&#8239;: sobriété, recyclage, refroidissement.</figcaption>
         </figure>
-        <p class="observation-lien"><a href="observation-graphiques-pression-environnementale.html">Notre observation est que…</a></p>
+        <p class="observation-lien"><a class="zone-particules" href="observation-graphiques-pression-environnementale.html">Notre observation est que…</a></p>
         <ul class="faits">
           <li>Sur la première courbe, le cumul IA, cloud et voiture électrique avance de quatre à cinq ans le franchissement des seuils, par rapport à l’IA et au cloud seuls.</li>
           <li>Sur la seconde, l’accélération est placée après 2026. Un seuil local vers 2032, eau et réseaux. Un seuil plus large vers 2035-2036, côté minerais.</li>
