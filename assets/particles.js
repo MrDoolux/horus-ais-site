@@ -2,7 +2,21 @@
   const canvas = document.getElementById("dust-canvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  const chars = "HORUSAIS01*+".split("");
+  // Characters pool — enrichi
+  const hieroglyphs = [
+    "𓂀", "𓋹", "𓆣", "𓁹", "𓃀", "𓏏", "𓊃", "𓈖", "𓇋", "𓎛",
+    "𓄿", "𓍯", "𓃭", "𓆑", "𓅓", "𓏲", "𓊪", "𓂋", "𓏤", "𓇳",
+    "𓊨", "𓁶", "𓃂", "𓆓", "𓋴", "𓈎", "𓍿", "𓄡", "𓏥", "𓊖"
+  ];
+  const matrix = [
+    "ア", "カ", "サ", "タ", "ナ", "ハ", "マ", "ヤ", "ラ", "ワ",
+    "イ", "キ", "シ", "チ", "ニ", "ヒ", "ミ", "リ", "ウ", "ク",
+    "ス", "ツ", "ヌ", "フ", "ム", "ユ", "ル", "エ", "ケ", "セ",
+    "0", "1", "7", "ゼ", "ゾ", "ダ", "バ", "パ", "ン",
+    "Σ", "Ω", "Δ", "Ψ", "λ", "μ", "π", "τ"
+  ];
+  const allChars = [...hieroglyphs, ...matrix];
+  const chars = allChars;
   let particles = [], animId = null, hover = false, last = 0;
   const activeZones = [];
 
@@ -86,6 +100,7 @@
   bindZone(document.getElementById("logo-wrap"));
   document.querySelectorAll(".actions .btn").forEach(bindZone);
   bindZone(document.querySelector(".btn.primary"))
+  document.querySelectorAll(".graphique-lien").forEach(bindZone);
   
   
   window.addEventListener("resize", resize);
